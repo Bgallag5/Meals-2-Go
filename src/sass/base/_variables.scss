@@ -10,11 +10,12 @@ $color-accent--dark: #1d3557;
 $color-accent--light: #a8dadc;
 
 
-$color-white: #fff;
-$color-grey: #999;
+$color-white: rgb(242, 242, 242);
+$color-grey: rgb(173, 173, 173);
 $color-grey--light: rgb(228, 228, 228);
 
 
 $font-grey: rgb(50, 50, 50);
 
 $box-shadow: 0px 5px 10px rgba(0, 0, 0, .3);
+$text-shadow: 0px 5px 10px rgba(0, 0, 0, .3)
