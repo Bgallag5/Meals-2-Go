@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function CartItem() {
+
   return (
     <div className="cart__item flex-col">
       <h2 className="text-regular-bold">Sushi</h2>

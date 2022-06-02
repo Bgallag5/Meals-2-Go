@@ -130,6 +130,7 @@ body {
 .header__main--cart {
   width: 15rem;
   justify-content: space-around;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 .header__main--cart--items {
   background-color: #e63946;
@@ -139,6 +140,7 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
+  font-size: 1.8rem;
 }
 .header__img {
   width: 100%;
@@ -165,6 +167,7 @@ body {
   border-radius: 15px;
   padding: 3rem;
   margin-bottom: 2rem;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 .menu__about {
   height: auto;

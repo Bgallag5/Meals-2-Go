@@ -13,6 +13,9 @@ function App() {
   const modalContainerRef = useRef();
 
 
+  //create and move main state logic into store/context
+  //searchbar for meals?
+
   const handleClickOffModal = (e) => {
       console.log( 'CLICKED!!!');
       //if user click inside the cart modal, return do nothing 

@@ -3,6 +3,15 @@ import CartItem from "./CartItem";
 import { AppContext } from "../../App";
 
 export default function Cart() {
+
+    //displays items the user has added with accurate quantity
+    //+/- buttons change the quantity and update the total price
+    //quantity inputs should only update with buttons - change the input to a span or h2
+    //order button does something
+    // x button to remove cart item, 
+    //changing quantity to 0 does not remove item from dom
+    //info comes from props/state - dummy data file;
+    
   const {
     modalRef,
     modalContainerRef,

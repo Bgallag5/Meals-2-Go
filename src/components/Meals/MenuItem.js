@@ -1,6 +1,9 @@
 import React from 'react';
 
 export default function MenuItem() {
+
+    //button adds items to cart with accurate quantity 
+    //info comes from props/state
   return (
     <div className='meal flex-row'>
         <div className="meal__info flex-col">
