@@ -9,7 +9,6 @@ export const AppContext = React.createContext();
 
 function App() {
 
-
   const modalRef = useRef();
   const modalContainerRef = useRef();
 

@@ -122,9 +122,7 @@ body {
 }
 .header__main--title {
   font-size: 3rem;
-  color: transparent;
-  background-image: linear-gradient(to right, #a8dadc, #fff);
-  background-clip: text;
+  color: #fff;
   letter-spacing: 1px;
   text-transform: uppercase;
   text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);

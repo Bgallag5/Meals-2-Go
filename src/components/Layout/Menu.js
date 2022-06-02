@@ -1,12 +1,7 @@
 import React from 'react';
-
 import MenuItem from '../Meals/MenuItem';
 
 export default function Menu() {
-
-    //about div
-    //main menu
-    // all background grey - translate up 
   return (
     <div className="menu flex-col">
         <div className="menu__about flex-col">
