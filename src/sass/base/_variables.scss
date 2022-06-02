@@ -1,6 +1,7 @@
 
 $color-primary: #e63946;
 $color-primary--dark: rgb(137, 38, 46);
+$color-primary--grad: linear-gradient(to bottom right, #{$color-primary}, #{$color-primary--dark});
 
 $color-secondary: #f1faee;
 

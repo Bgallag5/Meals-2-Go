@@ -14,7 +14,7 @@ export default function MenuItem() {
                 <input className='input-quantity text-small' type={'number'}></input>
             </div>
             <div className="meal__add--btn">
-                <button className="btn--add--meal btn text-small">+Add</button>
+                <button className="btn--add--meal btn text-small">+ Add</button>
             </div>
         </div>
     </div>

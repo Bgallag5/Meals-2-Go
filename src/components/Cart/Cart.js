@@ -6,15 +6,12 @@ import { AppContext } from '../../App';
 
 export default function Cart() {
 
-    const {modalRef, modalContainerRef, handleCloseModal} = useContext(AppContext);
+    const {modalRef, modalContainerRef, handleCloseModal, handleToggleModal, handleClickOffModal} = useContext(AppContext);
 
 
   return (
-    <div ref={modalContainerRef} onClick={handleCloseModal} className='cart flex-col hidden'>
+    <div ref={modalContainerRef} onClick={handleClickOffModal} className='cart flex-col hidden'>
         <div ref={modalRef} className="cart__cart flex-col">
-            <CartItem />
-            <CartItem />
-            <CartItem />
             <CartItem />
             <CartItem />
             <CartItem />
@@ -24,8 +21,8 @@ export default function Cart() {
                 <h1 className="text-large">$50.95</h1>
                 </div>
                 <div className='flex-row order--buttons'>
-                    <button className="btn text-regular cart--btn-close">Close</button>
-                    <button className="btn text-regular cart--btn-order">Order</button>
+                    <button onClick={handleToggleModal} className="btn text-regular cart--btn-close">Close</button>
+                    <button className="btn btn-red text-regular cart--btn-order">Order</button>
                 </div>
             </div>
         </div>

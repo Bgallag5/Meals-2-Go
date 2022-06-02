@@ -14,7 +14,7 @@ function App() {
   const modalContainerRef = useRef();
 
 
-  const handleCloseModal = (e) => {
+  const handleClickOffModal = (e) => {
       console.log( 'CLICKED!!!');
       //if user click inside the cart modal, return do nothing 
       if (modalRef.current.contains(e.target)) return 
@@ -24,7 +24,11 @@ function App() {
       }
   }
 
-  const handleOpenModal = () => {
+  const handleToggleModal = () => {
+    modalContainerRef.current.classList.toggle('hidden')
+  }
+
+  const handleCloseModal = () => {
     modalContainerRef.current.classList.toggle('hidden')
   }
 
@@ -32,7 +36,8 @@ function App() {
     modalRef,
     modalContainerRef,
     handleCloseModal,
-    handleOpenModal
+    handleToggleModal,
+    handleClickOffModal
   }
 
   return (
