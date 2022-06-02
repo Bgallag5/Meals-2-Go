@@ -1,0 +1,41 @@
+.menu{
+    height: auto;
+    min-height: 95vh;
+    align-items: center;
+    background: $color-accent--dark;
+    padding-top: 20rem;
+    margin-top: -30rem;
+    width: 100%;
+    gap: 5rem;
+
+    & > * {
+        z-index: 101;
+        border-radius: 15px;
+        padding: 3rem;
+        margin-bottom: 2rem;
+
+    }
+    
+    &__about{
+        height: auto;
+        width: 50%;
+        background-color: $color-primary;
+        color: $color-white;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+
+        &--title{
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__menu{
+        height: auto;
+        width: 75%;
+        background-color:$color-white;
+        align-items: center;
+        // justify-content: center;
+    }
+
+}
