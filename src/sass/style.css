@@ -79,9 +79,6 @@ body {
   transform: translateY(2px);
 }
 
-/*
-reusable UI component classes (buttons, inputs, ...)
-*/
 .header {
   height: auto;
   width: 100%;
@@ -202,6 +199,24 @@ reusable UI component classes (buttons, inputs, ...)
   width: 10rem;
   color: #fff;
   justify-content: center;
+}
+
+.cart {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+.cart__cart {
+  min-height: 50rem;
+  height: auto;
+  width: 50%;
+  background-color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */
