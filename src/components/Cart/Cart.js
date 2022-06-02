@@ -11,7 +11,7 @@ export default function Cart() {
     // x button to remove cart item, 
     //changing quantity to 0 does not remove item from dom
     //info comes from props/state - dummy data file;
-    
+
   const {
     modalRef,
     modalContainerRef,
