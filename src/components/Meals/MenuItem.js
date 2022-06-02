@@ -11,7 +11,7 @@ export default function MenuItem() {
         <div className="meal__add flex-col text-small">
             <div className="meal__add--amount flex-row">
                 <p>Amount</p>
-                <input className='add--input text-small' type={'number'}></input>
+                <input className='input-quantity text-small' type={'number'}></input>
             </div>
             <div className="meal__add--btn">
                 <button className="btn--add--meal btn text-small">+Add</button>

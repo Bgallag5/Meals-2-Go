@@ -39,6 +39,10 @@ body {
   flex-direction: row;
 }
 
+.jcsp {
+  justify-content: space-between;
+}
+
 .text-large {
   font-size: 2.6rem;
   font-weight: 600;
@@ -77,6 +81,20 @@ body {
 }
 .btn:active {
   transform: translateY(2px);
+}
+
+.btn-blue {
+  background-color: #457b9d !important;
+}
+
+.input-quantity {
+  width: 4rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font: inherit;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .header {
@@ -129,13 +147,13 @@ body {
   min-height: 95vh;
   align-items: center;
   background: #1d3557;
-  padding-top: 20rem;
+  padding: 20rem 0rem;
   margin-top: -30rem;
   width: 100%;
   gap: 5rem;
 }
 .menu > * {
-  z-index: 101;
+  z-index: 99;
   border-radius: 15px;
   padding: 3rem;
   margin-bottom: 2rem;
@@ -185,15 +203,6 @@ body {
   gap: 1rem;
   align-items: center;
 }
-.meal__add--amount .add--input {
-  width: 4rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font: inherit;
-  padding-left: 0.5rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
 .meal__add .btn--add--meal {
   background: #e63946;
   width: 10rem;
@@ -217,6 +226,51 @@ body {
   height: auto;
   width: 50%;
   background-color: #fff;
+  padding: 3rem;
+  border-radius: 30px;
+}
+.cart__cart .cart__item {
+  height: auto;
+  padding: 1rem 0rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+.cart__cart .cart__item:not(:last-child) {
+  border-bottom: 1px solid #457b9d;
+}
+.cart__cart .cart__item--amounts {
+  justify-content: space-between;
+}
+.cart__cart .cart__item--amounts > * {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.cart__cart .cart__item--amounts .price-quantity {
+  gap: 5rem;
+}
+.cart__cart .cart--btn-change {
+  width: 5rem;
+  justify-content: center;
+  font-size: 2.5rem;
+  padding: 5px;
+  background-color: #e63946;
+  color: #fff;
+}
+.cart__cart .cart__total {
+  gap: 2rem;
+}
+.cart__cart .cart__total .order--buttons {
+  justify-content: flex-end;
+  gap: 2rem;
+}
+.cart__cart .cart__total .order--buttons > * {
+  width: 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

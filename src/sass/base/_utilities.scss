@@ -4,6 +4,8 @@
     opacity: 0;
 }
 
+
+// LAYOUT //
 .flex-col{
     display: flex;
     flex-direction: column;
@@ -13,6 +15,12 @@
     display: flex;
     flex-direction: row;
 }
+
+.jcsp{
+    justify-content: space-between;
+}
+// LAYOUT //
+
 
 .text-large{
     font-size: 2.6rem;
@@ -54,4 +62,19 @@
     &:active{
         transform: translateY(2px);
     }
+}
+
+.btn-blue{
+    background-color: $color-accent !important;
+}
+
+
+.input-quantity{
+    width: 4rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font: inherit;
+    padding-left: 0.5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
 }

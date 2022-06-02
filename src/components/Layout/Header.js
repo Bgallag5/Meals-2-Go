@@ -11,7 +11,7 @@ export default function Header() {
         <header className="header__main flex-row">
           <h1 className="header__main--title">Meals</h1>
           <button onClick={handleOpenModal} className="header__main--cart btn flex-row ">
-            <p>Cart</p> 
+            <p className="text-small">Cart</p> 
             <div className="header__main--cart--items flex-row">0</div>
           </button>
         </header>

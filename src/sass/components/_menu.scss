@@ -3,13 +3,13 @@
     min-height: 95vh;
     align-items: center;
     background: $color-accent--dark;
-    padding-top: 20rem;
+    padding: 20rem 0rem;
     margin-top: -30rem;
     width: 100%;
     gap: 5rem;
 
     & > * {
-        z-index: 101;
+        z-index: 99;
         border-radius: 15px;
         padding: 3rem;
         margin-bottom: 2rem;
