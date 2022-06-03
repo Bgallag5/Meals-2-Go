@@ -39,6 +39,11 @@
 
         .price-quantity {
           gap: 5rem;
+
+          .input-quantity{
+              gap: 1rem;
+              border: none;  
+          }
         }
       }
     }

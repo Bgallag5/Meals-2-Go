@@ -3,7 +3,7 @@ import CartItem from "./CartItem";
 import { AppContext } from "../../App";
 import {GlobalContext} from '../../store/GlobalStore';
 
-export default function Cart(props) {
+export default function Cart() {
 
     //displays items the user has added with accurate quantity
     //+/- buttons change the quantity and update the total price
@@ -23,7 +23,7 @@ export default function Cart(props) {
   } = useContext(AppContext);
 
   //GlobalContext contains our top level app state - found in the GlobalStore.js
-  const {items, totalAmount, availableMeals} = useContext(GlobalContext);
+  const {items, totalAmount} = useContext(GlobalContext);
   console.log(items);
   console.log(totalAmount);
 
@@ -45,7 +45,7 @@ export default function Cart(props) {
         <div className="cart__total flex-col cart__item">
           <div className="flex-row jcsp">
             <h1 className="text-large">Total</h1>
-            <h1 className="text-large">$50.95</h1>
+            <h1 className="text-large">${totalAmount}</h1>
           </div>
           <div className="flex-row order--buttons">
             <button

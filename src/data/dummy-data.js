@@ -31,7 +31,7 @@ const meals = [
     {
         id: 4,
         name: 'Red Pepper Hummus',
-        price: '15.99',
+        price: '$15.99',
         description: `Spicy blend of our Hummus, roasted red peppers and jalapeno.`,
         category: '',
         course: 'starter',
@@ -40,7 +40,7 @@ const meals = [
     {
         id: 5,
         name: 'Pasta Marinara',
-        price: '14.99',
+        price: '$14.99',
         description: `Your choice of our marinara, arrabbiata or vodka sauce with linguini, fettuccini or penne pasta.`,
         category: 'pasta',
         course: 'main',
@@ -49,7 +49,7 @@ const meals = [
     {
         id: 6,
         name: 'Beef Lomain',
-        price: '17.99',
+        price: '$17.99',
         description: `Classic Lomain Noodles with our fresh Beef seasoned to perfection`,
         category: 'pasta',
         course: 'main',
@@ -58,7 +58,7 @@ const meals = [
     {
         id: 7,
         name: 'Roasted Turkey BLT',
-        price: '13.99',
+        price: '$13.99',
         description: `Roasted turkey breast, Applewood smoked bacon, lettuce, tomato and provolone cheese with our chipotle mayo.`,
         category: 'sandwich',
         course: 'main',
@@ -67,7 +67,7 @@ const meals = [
     {
         id: 8,
         name: 'Penne Arrabbiata',
-        price: '17.99',
+        price: '$17.99',
         description: `Penne pasta tossed with kalamata olives, sautéed mushrooms, capers and our zesty Arrabbiata sauce`,
         category: 'pasta',
         course: 'main',
@@ -76,7 +76,7 @@ const meals = [
     {
         id: 9,
         name: 'Grilled Chicken Pesto Panini',
-        price: '16.99',
+        price: '$16.99',
         description: `Marinated chicken breast, roasted peppers and grilled zucchini with our basil pesto.`,
         category: 'sandwich',
         course: 'main',
@@ -85,7 +85,7 @@ const meals = [
     {
         id: 10,
         name: 'Chicken Kabob Platter',
-        price: '19.99',
+        price: '$19.99',
         description: `Served with rice, grilled vegetables, salad, pita bread and tzatziki sauce. Choice of regular or brown basmati rice and regular or whole grain pita`,
         category: '',
         course: 'main',

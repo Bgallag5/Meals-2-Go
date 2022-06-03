@@ -263,6 +263,10 @@ body {
 .cart__cart .cart__item--amounts .price-quantity {
   gap: 5rem;
 }
+.cart__cart .cart__item--amounts .price-quantity .input-quantity {
+  gap: 1rem;
+  border: none;
+}
 .cart__cart .cart--btn-change {
   width: 5rem;
   justify-content: center;
