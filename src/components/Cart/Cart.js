@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import CartItem from "./CartItem";
 import { AppContext } from "../../App";
+import {GlobalContext} from '../../store/GlobalStore';
 
-export default function Cart() {
+export default function Cart(props) {
 
     //displays items the user has added with accurate quantity
     //+/- buttons change the quantity and update the total price
@@ -12,6 +13,7 @@ export default function Cart() {
     //changing quantity to 0 does not remove item from dom
     //info comes from props/state - dummy data file;
 
+    //AppContext contains refs and functions that need to be passed around the application
   const {
     modalRef,
     modalContainerRef,
@@ -20,13 +22,19 @@ export default function Cart() {
     handleClickOffModal,
   } = useContext(AppContext);
 
+  //GlobalContext contains our top level app state - found in the GlobalStore.js
+  const {items, totalAmount, availableMeals} = useContext(GlobalContext);
+  console.log(items);
+
+
+
   return (
     <div
       ref={modalContainerRef}
       onClick={handleClickOffModal}
       className="cart flex-col hidden"
     >
-      <div ref={modalRef} className="cart__cart flex-col">
+      <div  className="cart__cart flex-col">
         <CartItem />
         <CartItem />
         <CartItem />

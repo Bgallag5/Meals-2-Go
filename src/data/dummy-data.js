@@ -119,3 +119,5 @@ const meals = [
         img: 'src',
     },
 ]
+
+export default meals;

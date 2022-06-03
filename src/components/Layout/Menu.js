@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import MenuItem from '../Meals/MenuItem';
 
+import { GlobalContext } from '../../store/GlobalStore';
+
 export default function Menu() {
+
+    const {availableMeals} = useContext(GlobalContext);
+
   return (
     <div className="menu flex-col">
         <div className="menu__about flex-col">
@@ -10,9 +15,12 @@ export default function Menu() {
             <p className="menu__about--text text-small">All of our meals are made with fresh, local ingredients, and prepared by award-winning chefs</p>
         </div>
         <div className="menu__menu flex-col">
+            {availableMeals.map(meal => {
+                return <MenuItem meal={meal} key={meal.id} />
+            })}
+            {/* <MenuItem />
             <MenuItem />
-            <MenuItem />
-            <MenuItem />
+            <MenuItem /> */}
         </div>
     </div>
   )

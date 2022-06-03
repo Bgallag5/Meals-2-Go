@@ -1,5 +1,6 @@
 import React, {useContext} from "react";
 import { AppContext } from "../../App";
+import { GlobalContext } from "../../store/GlobalStore";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faCartShopping, faStar } from "@fortawesome/free-solid-svg-icons";
 

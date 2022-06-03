@@ -1,15 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { GlobalContext } from '../../store/GlobalStore';
 
-export default function MenuItem() {
+export default function MenuItem({meal}) {
+
+    const {id, name, price, description, category, course, img} = meal;
+    const {addItem} = useContext(GlobalContext);
 
     //button adds items to cart with accurate quantity 
     //info comes from props/state
   return (
     <div className='meal flex-row'>
         <div className="meal__info flex-col">
-            <p className='text-regular-bold'>Sushi</p>
-            <p className='meal__info--description text-regular-italic'>It's Fish!</p>
-            <p className='meal__info--price text-regular'>$14.99</p>
+            <p className='text-regular-bold'>{name}</p>
+            <p className='meal__info--description text-regular-italic'>{description}</p>
+            <p className='meal__info--price text-regular'>{price}</p>
         </div>
         <div className="meal__add flex-col text-small">
             <div className="meal__add--amount flex-row">
@@ -17,7 +21,7 @@ export default function MenuItem() {
                 <input className='input-quantity text-small' type={'number'}></input>
             </div>
             <div className="meal__add--btn">
-                <button className="btn--add--meal btn text-small">+ Add</button>
+                <button onClick={() => addItem(meal)} className="btn--add--meal btn text-small">+ Add</button>
             </div>
         </div>
     </div>

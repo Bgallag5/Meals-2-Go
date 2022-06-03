@@ -1,4 +1,5 @@
 import React, {useRef, useState} from "react";
+import Provider from "./store/GlobalStore";
 
 //components
 import Header from "./components/Layout/Header";
@@ -27,11 +28,11 @@ function App() {
   }
 
   const handleToggleModal = () => {
-    modalContainerRef.current.classList.toggle('hidden')
+    modalContainerRef.current.classList.toggle('hidden');
   }
 
   const handleCloseModal = () => {
-    modalContainerRef.current.classList.toggle('hidden')
+    modalContainerRef.current.classList.toggle('hidden');
   }
 
   const globalVars = {
@@ -43,6 +44,7 @@ function App() {
   }
 
   return (
+    <Provider>
     <AppContext.Provider value={globalVars}>
     <div>
       <Cart />
@@ -50,6 +52,7 @@ function App() {
       <Menu />
     </div>
     </AppContext.Provider>
+    </Provider>
   );
 }
 
