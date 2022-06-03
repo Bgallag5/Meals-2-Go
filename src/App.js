@@ -43,6 +43,10 @@ function App() {
     handleClickOffModal
   }
 
+  //regex get number from price string
+  // console.log(('$17.99').replace(/[^\d.-]/g, ''));
+  console.log();
+
   return (
     <Provider>
     <AppContext.Provider value={globalVars}>

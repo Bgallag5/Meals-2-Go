@@ -25,19 +25,23 @@ export default function Cart(props) {
   //GlobalContext contains our top level app state - found in the GlobalStore.js
   const {items, totalAmount, availableMeals} = useContext(GlobalContext);
   console.log(items);
+  console.log(totalAmount);
 
 
 
   return (
     <div
       ref={modalContainerRef}
-      onClick={handleClickOffModal}
+      onClick={(e) => handleClickOffModal(e)}
       className="cart flex-col hidden"
     >
-      <div  className="cart__cart flex-col">
+      <div ref={modalRef} className="cart__cart flex-col">
+          {items.map(item => {
+              return <CartItem item={item} key={item.id} />
+          })}
+        {/* <CartItem />
         <CartItem />
-        <CartItem />
-        <CartItem />
+        <CartItem /> */}
         <div className="cart__total flex-col cart__item">
           <div className="flex-row jcsp">
             <h1 className="text-large">Total</h1>
