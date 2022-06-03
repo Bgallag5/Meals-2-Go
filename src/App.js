@@ -54,3 +54,22 @@ function App() {
 }
 
 export default App;
+
+
+
+/*
+
+redux state and dispatch hooks 
+import { useDispatch, useSelector } from "react-redux";
+
+export default function Overview() {
+  const state = useSelector(state => state);
+  const { tours } = state;
+  const dispatch = useDispatch();
+
+
+
+//page navigation hook
+import { useNavigate } from 'react-router-dom';
+
+*/
