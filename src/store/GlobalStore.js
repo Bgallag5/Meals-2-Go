@@ -16,8 +16,11 @@ const preLoadedState = {
 const Provider = (props) => {
   const [state, dispatch] = useReducer(reducer, preLoadedState);
 
-  const addItem = (item) => {
-    dispatch({ type: "ADD_TO_CART", payload: item });
+  const addItem = (item, quantity) => {
+      console.log(quantity);
+      console.log(item);
+      //have item and num -> how do i add item num times?
+    dispatch({ type: "ADD_TO_CART", payload: {item, quantity} });
   };
   const removeItem = () => {};
 
