@@ -18,9 +18,6 @@ export default function Menu() {
             {availableMeals.map(meal => {
                 return <MenuItem meal={meal} key={meal.id} />
             })}
-            {/* <MenuItem />
-            <MenuItem />
-            <MenuItem /> */}
         </div>
     </div>
   )

@@ -1,3 +1,4 @@
+//calculate the cart total
 function calcTotal(arr) {
   const total = arr.reduce((acc, cur) => {
     //regex - get number from price string on current item
@@ -26,19 +27,22 @@ export const reducer = (state, { type, payload }) => {
       let updatedItems;
       //if item exists in items (cart) -> update that item.quantity
       if (itemAlreadyInCart) {
+        //recreate the existing item but change that item's quantity
         const updatedItem = {
           ...itemAlreadyInCart,
           quantity: itemAlreadyInCart.quantity + payload.quantity,
         };
+        //spread old cart items
         updatedItems = [...state.items];
+        //overwrite the existing cart item with the updated item with correct quantity
         updatedItems[state.items.indexOf(itemAlreadyInCart)] = updatedItem;
       }
-      //else add item with quantity
+      //else add item and set quantity property
       else if (!itemAlreadyInCart) {
         payload.item.quantity = payload.quantity;
         updatedItems = [...state.items, payload.item];
-        console.log(updatedItems);
       }
+      //return updated state, new cart items, and the calced total
       return {
         ...state,
         totalAmount: calcTotal(updatedItems),
