@@ -1,0 +1,108 @@
+.loader-container {
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: rgba(0, 0, 0, .2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loader {
+    position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    height: 200px;
+    width: 200px;
+    box-sizing: border-box;
+  }
+  
+  .face {
+    position: absolute;
+    border: 1px solid rgba($color-accent--light, 1);
+  }
+  
+  .face-1 {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $color-white;
+    box-shadow: 0 0 10px rgba($color-white, 1);
+    border-radius: 50%;
+    border-left: 2px solid $color-primary;
+    border-top: 2px solid $color-primary;
+    animation: circle 2s linear infinite;
+  
+    .circle::before {
+      background: $color-primary;
+      box-shadow: 0 0 20px $color-accent, 0 0 40px $color-accent, 0 0 60px $color-accent, 0 0 80px $color-accent,
+        0 0 100px $color-accent, 0 0 5px rgba(255, 255, 0, 0.1);
+    }
+  }
+  
+  .face-2 {
+    top: 25px;
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
+    background: $color-white;
+    box-shadow: 0 0 10px rgba($color-white, 1);
+    border-radius: 50%;
+    border-right: 2px solid $color-accent;
+    border-bottom: 2px solid $color-accent;
+    animation: circle2 2s linear infinite;
+  
+    .circle::before {
+      background: $color-accent;
+      box-shadow: 0 0 20px $color-primary--dark, 0 0 40px $color-primary--dark, 0 0 60px $color-primary--dark,
+        0 0 80px $color-primary--dark, 0 0 100px $color-primary--dark, 0 0 5px rgba(3, 169, 244, 0.1);
+    }
+  }
+  
+  .circle {
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 50%;
+    width: 50%;
+    height: 2px;
+    transform-origin: left;
+  
+    &::before {
+      content: "";
+      position: absolute;
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      background: white;
+      top: -4px;
+      right: -6px;
+    }
+  }
+  
+  .face-1 .circle {
+    transform: rotate(-37deg);
+  }
+  .face-2 .circle {
+    transform: rotate(-52deg);
+  }
+  
+  @keyframes circle {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes circle2 {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
