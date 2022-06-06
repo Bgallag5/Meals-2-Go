@@ -22,8 +22,10 @@ const Provider = (props) => {
     dispatch({ type: "ADD_TO_CART", payload: { item, quantity } });
   };
 
-  const reduceItem = () => {
+  const reduceItem = (cartItem) => {
     //reduce the number of the item by 1
+    dispatch({ type: "REDUCE_ITEM", payload: cartItem  });
+
   };
 
   //remove entire item object from the store state

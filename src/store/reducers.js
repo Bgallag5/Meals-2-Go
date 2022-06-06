@@ -48,5 +48,30 @@ export const reducer = (state, { type, payload }) => {
         totalAmount: calcTotal(updatedItems),
         items: updatedItems,
       };
+
+      case 'REDUCE_ITEM': 
+        console.log(payload);
+
+        const itemToReduce = state.items.find(item => item.id === payload.id);
+        console.log(itemToReduce);
+        // const quantity = itemToReduce.quantity - 1;
+        // let updatedItem ={...itemToReduce, itemToReduce.quantity = itemToReduce.quantity - 1};
+        let updated;
+        if (itemToReduce){
+            let newItem = {...itemToReduce, quantity: itemToReduce.quantity - 1};
+
+            updated = [...state.items]
+            updated[state.items.indexOf(itemToReduce)] = newItem;
+   
+        //    updated[state.items.indexOf(itemToReduce)] = newItem
+        }
+ 
+
+      return {
+          ...state,
+          totalAmount: calcTotal(updated),
+          items: updated
+    }
+
   }
 };
