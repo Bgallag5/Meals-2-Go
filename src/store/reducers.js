@@ -16,6 +16,8 @@ const storeData = (data) => {
 };
 
 export const reducer = (state, { type, payload }) => {
+  let updatedItems;
+
   switch (type) {
     default:
       return { ...state };
@@ -24,7 +26,6 @@ export const reducer = (state, { type, payload }) => {
       const itemAlreadyInCart = state.items.find(
         (item) => item.id === payload.item.id
       );
-      let updatedItems;
       //if item exists in items (cart) -> update that item.quantity
       if (itemAlreadyInCart) {
         //recreate the existing item but change that item's quantity
@@ -49,29 +50,20 @@ export const reducer = (state, { type, payload }) => {
         items: updatedItems,
       };
 
-      case 'REDUCE_ITEM': 
-        console.log(payload);
+    case "REDUCE_ITEM":
+      const itemToReduce = state.items.find((item) => item.id === payload.id);
+      if (!itemToReduce || itemToReduce.quantity === 0) return {...state}
+      
+        let newItem = { ...itemToReduce, quantity: itemToReduce.quantity - 1 };
 
-        const itemToReduce = state.items.find(item => item.id === payload.id);
-        console.log(itemToReduce);
-        // const quantity = itemToReduce.quantity - 1;
-        // let updatedItem ={...itemToReduce, itemToReduce.quantity = itemToReduce.quantity - 1};
-        let updated;
-        if (itemToReduce){
-            let newItem = {...itemToReduce, quantity: itemToReduce.quantity - 1};
-
-            updated = [...state.items]
-            updated[state.items.indexOf(itemToReduce)] = newItem;
-   
-        //    updated[state.items.indexOf(itemToReduce)] = newItem
-        }
- 
+        updatedItems = [...state.items];
+        updatedItems[state.items.indexOf(itemToReduce)] = newItem;
+      
 
       return {
-          ...state,
-          totalAmount: calcTotal(updated),
-          items: updated
-    }
-
+        ...state,
+        totalAmount: calcTotal(updatedItems),
+        items: updatedItems,
+      };
   }
 };
