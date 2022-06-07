@@ -1,0 +1,39 @@
+.app-message {
+  position: absolute;
+  //position in middle top, translate off page to top
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  z-index: 999;
+  height: 20rem;
+  width: 40rem;
+  background: $color-grey--light;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+
+  animation: slideDownUp 2s ease-in;
+}
+
+@keyframes slideDownUp {
+  0% {
+    transform: translate(-50%, -70%);
+  }
+  20% {
+    transform: translate(-50%, 12%);
+  }
+  25% {
+    transform: translate(-50%, 10%);
+  }
+  75% {
+    transform: translate(-50%, 10%);
+  }
+  80% {
+    transform: translate(-50%, 12%);
+  }
+  100% {
+    transform: translate(-50%, -100%);
+  }
+}

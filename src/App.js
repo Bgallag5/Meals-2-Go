@@ -1,14 +1,19 @@
-import React, { useRef, useState } from "react";
-import Provider from "./store/GlobalStore";
+import React, { useRef, useState, useContext } from "react";
+// import Provider from "./store/GlobalStore";
 
 //components
 import Header from "./components/Layout/Header";
 import Menu from "./components/Layout/Menu";
 import Cart from "./components/Cart/Cart";
+import AppMessage from './components/UI/AppMessage';
+import Provider, { GlobalContext  } from "./store/GlobalStore";
 
 export const AppContext = React.createContext();
 
 function App() {
+  const state = useContext(GlobalContext);
+  console.log(state);
+
   const modalRef = useRef();
   const modalContainerRef = useRef();
 
@@ -44,6 +49,7 @@ function App() {
     <Provider>
       <AppContext.Provider value={globalVars}>
         <div>
+          {/* {state && <AppMessage />} */}
           <Cart />
           <Header />
           <Menu />

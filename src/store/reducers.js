@@ -52,18 +52,57 @@ export const reducer = (state, { type, payload }) => {
 
     case "REDUCE_ITEM":
       const itemToReduce = state.items.find((item) => item.id === payload.id);
-      if (!itemToReduce || itemToReduce.quantity === 0) return {...state}
-      
-        let newItem = { ...itemToReduce, quantity: itemToReduce.quantity - 1 };
+      if (!itemToReduce || itemToReduce.quantity === 0) return { ...state };
 
-        updatedItems = [...state.items];
-        updatedItems[state.items.indexOf(itemToReduce)] = newItem;
-      
+      let newItem = { ...itemToReduce, quantity: itemToReduce.quantity - 1 };
+
+      updatedItems = [...state.items];
+      updatedItems[state.items.indexOf(itemToReduce)] = newItem;
 
       return {
         ...state,
         totalAmount: calcTotal(updatedItems),
         items: updatedItems,
+      };
+
+    case "SET_APP_MESSAGE":
+      console.log(payload);
+      const { msg, color, timer } = payload;
+
+      //   const setMessage = () => {
+      //     state.appMessage.msg = msg;
+      //     state.appMessage.color = color;
+      //     setTimeout(() => {
+      //       return {
+      //         ...state,
+      //         appMessage: {
+      //           msg: undefined,
+      //           timer: undefined,
+      //           color: undefined,
+      //           emoji: undefined,
+      //         },
+      //       };
+      //     }, timer);
+      //   };
+
+      return {
+        ...state,
+        appMessage: {
+          msg: msg,
+          color: color,
+          timer: timer,
+        },
+      };
+
+    case "CLEAR_APP_MESSAGE":
+      return {
+        ...state,
+        appMessage: {
+          msg: undefined,
+          timer: undefined,
+          color: undefined,
+          emoji: undefined,
+        },
       };
   }
 };
