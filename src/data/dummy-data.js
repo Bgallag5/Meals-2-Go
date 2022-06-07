@@ -34,7 +34,7 @@ const meals = [
     {
         id: 4,
         name: 'Red Pepper Hummus',
-        price: '$15.99',
+        price: '$7.99',
         description: `Spicy blend of our Hummus, roasted red peppers and jalapeno.`,
         category: '',
         course: 'starter',

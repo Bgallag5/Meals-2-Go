@@ -32,6 +32,17 @@
         }
     }
 
+    .menu-h1{
+        border-radius: 0;
+        color: $color-white;
+        width: 75%;
+        box-shadow: none;
+        padding: 0;
+        margin-bottom: .5rem;
+        text-decoration: solid underline 1px;
+        text-underline-position:under ;
+    }
+
     &__menu{
         height: auto;
         width: 75%;

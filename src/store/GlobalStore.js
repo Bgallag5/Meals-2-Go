@@ -56,7 +56,7 @@ const Provider = (props) => {
     totalAmount: state.totalAmount,
     availableMeals: meals,
     appMessage: state.appMessage,
-    //global functions
+    //global state functions
     addItem,
     removeItem,
     reduceItem,

@@ -35,14 +35,33 @@ export default function Menu() {
           by award-winning chefs
         </p>
       </div>
+      {/* if loading return Spinner, else return the menus */}
       {loading ? (
         <Spinner />
       ) : (
+          <>
+          <h1 className="menu-h1 text-large">Appetizers</h1>
         <div className="menu__menu flex-col">
           {availableMeals.map((meal) => {
+              if (meal.course !== 'starter') return null;
             return <MenuItem meal={meal} key={meal.id} />;
           })}
         </div>
+        <h1 className="menu-h1 text-large">Main Menu</h1>
+        <div className="menu__menu flex-col">
+          {availableMeals.map((meal) => {
+              if (meal.course !== 'main') return null;
+            return <MenuItem meal={meal} key={meal.id} />;
+          })}
+        </div>
+        <h1 className="menu-h1 text-large">Dessert Menu</h1>
+        <div className="menu__menu flex-col">
+          {availableMeals.map((meal) => {
+              if (meal.course !== 'dessert') return null;
+            return <MenuItem meal={meal} key={meal.id} />;
+          })}
+        </div>
+        </>
       )}
     </div>
   );

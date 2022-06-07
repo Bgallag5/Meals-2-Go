@@ -183,6 +183,16 @@ body {
 .menu__about--title {
   margin-bottom: 2rem;
 }
+.menu .menu-h1 {
+  border-radius: 0;
+  color: rgb(242, 242, 242);
+  width: 75%;
+  box-shadow: none;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  text-decoration: solid underline 1px;
+  text-underline-position: under;
+}
 .menu__menu {
   height: auto;
   width: 75%;
