@@ -1,10 +1,10 @@
 .app-message {
-  position: absolute;
+  position: fixed;
   //position in middle top, translate off page to top
   top: 0;
   left: 50%;
   transform: translate(-50%, -100%);
-  z-index: 999;
+  z-index: 9999;
   height: 20rem;
   width: 40rem;
   background: $color-grey--light;

@@ -323,6 +323,7 @@ body {
   bottom: 0;
   background: rgb(242, 242, 242);
   box-shadow: 0 0 10px #f2f2f2;
+  border: 1px solid rgba(255, 97, 110, 0.6);
   border-radius: 50%;
   border-left: 2px solid #e63946;
   border-top: 2px solid #e63946;
@@ -394,11 +395,11 @@ body {
   }
 }
 .app-message {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 50%;
   transform: translate(-50%, -100%);
-  z-index: 999;
+  z-index: 9999;
   height: 20rem;
   width: 40rem;
   background: rgb(228, 228, 228);

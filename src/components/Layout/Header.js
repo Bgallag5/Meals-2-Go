@@ -10,20 +10,20 @@ export default function Header() {
 
     const {handleToggleModal } = useContext(AppContext);
 
-    const {items, appMessage, clearAppMessage } = useContext(GlobalContext);
+    const {items, appMessage } = useContext(GlobalContext);
     console.log(appMessage);
-    useEffect(() => {
-        if (appMessage?.msg){
-            setTimeout(() => {
-                clearAppMessage({})
-            }, appMessage.timer)
-        }
-    }, [appMessage, clearAppMessage])
+    // useEffect(() => {
+    //     if (appMessage?.msg){
+    //         setTimeout(() => {
+    //             clearAppMessage({})
+    //         }, appMessage.timer)
+    //     }
+    // }, [appMessage, clearAppMessage])
 
   return (
-    <>
-      <div className="header flex-col">
+    <div>
     {appMessage?.msg && <AppMessage />}
+      <div className="header flex-col">
         <header className="header__main flex-row">
           <h1 className="header__main--title">Meals-2-Go</h1>
           <button onClick={handleToggleModal} className="header__main--cart btn flex-row ">
@@ -34,6 +34,6 @@ export default function Header() {
         </header>
       </div>
       <div className="header__img"></div>
-    </>
+    </div>
   );
 }

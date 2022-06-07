@@ -69,22 +69,6 @@ export const reducer = (state, { type, payload }) => {
       console.log(payload);
       const { msg, color, timer } = payload;
 
-      //   const setMessage = () => {
-      //     state.appMessage.msg = msg;
-      //     state.appMessage.color = color;
-      //     setTimeout(() => {
-      //       return {
-      //         ...state,
-      //         appMessage: {
-      //           msg: undefined,
-      //           timer: undefined,
-      //           color: undefined,
-      //           emoji: undefined,
-      //         },
-      //       };
-      //     }, timer);
-      //   };
-
       return {
         ...state,
         appMessage: {
