@@ -9,6 +9,7 @@ const meals = [
         category: '',
         course: 'starter',
         img: 'src',
+        emoji: `🥔`,
     },
     {
         id: 2,
@@ -18,6 +19,7 @@ const meals = [
         category: '',
         course: 'starter',
         img: 'src',
+        emoji: `🥗`,
     },
     {
         id: 3,
@@ -27,6 +29,7 @@ const meals = [
         category: '',
         course: 'starter',
         img: 'src',
+        emoji: `🍤`,
     },
     {
         id: 4,
@@ -36,6 +39,7 @@ const meals = [
         category: '',
         course: 'starter',
         img: 'src',
+        emoji: ``,
     },
     {
         id: 5,
@@ -45,6 +49,7 @@ const meals = [
         category: 'pasta',
         course: 'main',
         img: 'src',
+        emoji: `🍝`,
     },
     {
         id: 6,
@@ -54,6 +59,7 @@ const meals = [
         category: 'pasta',
         course: 'main',
         img: 'src',
+        emoji: `🍲`,
     },
     {
         id: 7,
@@ -63,6 +69,7 @@ const meals = [
         category: 'sandwich',
         course: 'main',
         img: 'src',
+        emoji: `🥪`,
     },
     {
         id: 8,
@@ -72,6 +79,7 @@ const meals = [
         category: 'pasta',
         course: 'main',
         img: 'src',
+        emoji: `🍜`,
     },
     {
         id: 9,
@@ -81,6 +89,7 @@ const meals = [
         category: 'sandwich',
         course: 'main',
         img: 'src',
+        emoji: `🥪`,
     },
     {
         id: 10,
@@ -90,6 +99,7 @@ const meals = [
         category: '',
         course: 'main',
         img: 'src',
+        emoji: `🍗`,
     },
     {
         id: 11,
@@ -99,6 +109,7 @@ const meals = [
         category: '',
         course: 'dessert',
         img: 'src',
+        emoji: ``,
     },
     {
         id: 12,
@@ -108,6 +119,7 @@ const meals = [
         category: '',
         course: 'dessert',
         img: 'src',
+        emoji: `🍰`,
     },
     {
         id: 13,
@@ -117,6 +129,7 @@ const meals = [
         category: '',
         course: 'dessert',
         img: 'src',
+        emoji: `🍪`,
     },
 ]
 

@@ -1,20 +1,31 @@
-.app-message {
+.app__message {
   position: fixed;
   //position in middle top, translate off page to top
   top: 0;
   left: 50%;
   transform: translate(-50%, -100%);
   z-index: 9999;
-  height: 20rem;
-  width: 40rem;
+  height: auto;
+  width: auto;
+  padding: 5rem 10rem;
+  border-radius: $border-smooth;
+  box-shadow: $box-shadow;
   background: $color-grey--light;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 2rem;
   justify-content: center;
   align-items: center;
   justify-self: center;
+  animation: slideDownUp ease-in;
 
-  animation: slideDownUp 2s ease-in;
+  &--msg{
+
+  }
+  &--emoji{
+    font-size: 3rem;
+  }
+
 }
 
 @keyframes slideDownUp {

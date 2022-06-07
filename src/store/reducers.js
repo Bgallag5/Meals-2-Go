@@ -65,9 +65,25 @@ export const reducer = (state, { type, payload }) => {
         items: updatedItems,
       };
 
+    case "REMOVE_ITEM":
+      console.log(payload);
+      //search for item in cart
+      const itemToRemove = state.items.find((item) => item.id === payload.id);
+      //filter current items and exclude itemToRemove
+      updatedItems = [...state.items].filter(
+        (item) => item.id !== itemToRemove.id
+      );
+
+      //return updated state without that item
+      return {
+        ...state,
+        totalAmount: calcTotal(updatedItems),
+        items: updatedItems,
+      };
+
     case "SET_APP_MESSAGE":
       console.log(payload);
-      const { msg, color, timer } = payload;
+      const { msg, color, timer, emoji } = payload;
 
       return {
         ...state,
@@ -75,6 +91,7 @@ export const reducer = (state, { type, payload }) => {
           msg: msg,
           color: color,
           timer: timer,
+          emoji: emoji,
         },
       };
 

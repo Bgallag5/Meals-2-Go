@@ -10,7 +10,7 @@
 
     & > * {
         z-index: 99;
-        border-radius: 15px;
+        border-radius: $border-smooth;
         padding: 3rem;
         margin-bottom: 2rem;
         box-shadow: $box-shadow;

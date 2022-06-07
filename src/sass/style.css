@@ -165,7 +165,7 @@ body {
 }
 .menu > * {
   z-index: 99;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 3rem;
   margin-bottom: 2rem;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
@@ -238,9 +238,10 @@ body {
   min-height: 50rem;
   height: auto;
   width: 50%;
+  overflow-y: scroll;
   background-color: rgb(242, 242, 242);
   padding: 3rem;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 .cart__cart .cart__item {
   height: auto;
@@ -251,6 +252,27 @@ body {
 }
 .cart__cart .cart__item:not(:last-child) {
   border-bottom: 1px solid #457b9d;
+}
+.cart__cart .cart__item--name {
+  gap: 1rem;
+  align-items: center;
+}
+.cart__cart .cart__item--name .clear-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 2rem;
+  padding: 1rem;
+  color: rgba(255, 0, 0, 0.5);
+  border: none;
+  border-radius: 80px;
+  background-color: rgb(228, 228, 228);
+  cursor: pointer;
+}
+.cart__cart .cart__item--name .clear-item:hover {
+  color: rgb(255, 0, 0);
+  transform: scale(1.3);
 }
 .cart__cart .cart__item--amounts {
   justify-content: space-between;
@@ -394,21 +416,28 @@ body {
     transform: rotate(-360deg);
   }
 }
-.app-message {
+.app__message {
   position: fixed;
   top: 0;
   left: 50%;
   transform: translate(-50%, -100%);
   z-index: 9999;
-  height: 20rem;
-  width: 40rem;
+  height: auto;
+  width: auto;
+  padding: 5rem 10rem;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
   background: rgb(228, 228, 228);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 2rem;
   justify-content: center;
   align-items: center;
   justify-self: center;
-  animation: slideDownUp 2s ease-in;
+  animation: slideDownUp ease-in;
+}
+.app__message--emoji {
+  font-size: 3rem;
 }
 
 @keyframes slideDownUp {

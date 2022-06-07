@@ -14,9 +14,10 @@
     min-height: 50rem;
     height: auto;
     width: 50%;
+    overflow-y: scroll;
     background-color: $color-white;
     padding: 3rem;
-    border-radius: 30px;
+    border-radius: $border-smooth;
 
     .cart__item {
       height: auto;
@@ -28,6 +29,31 @@
       &:not(:last-child) {
         border-bottom: 1px solid $color-accent;
       }
+
+      &--name{
+          gap: 1rem;
+            align-items: center;
+          .clear-item{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 2rem;
+              width: 2rem;
+              padding: 1rem;
+              color: rgba(255, 0, 0, .5);
+              border: none;
+              border-radius: 80px;
+              background-color: $color-grey--light;
+              cursor: pointer;
+            //   filter: blur(1px);  
+
+            &:hover{
+                color: rgba(255, 0, 0, 1);
+                transform: scale(1.3);
+            }
+          }
+      }
+
       &--amounts {
         justify-content: space-between;
 
