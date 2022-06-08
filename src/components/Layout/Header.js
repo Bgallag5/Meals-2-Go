@@ -26,6 +26,13 @@ export default function Header() {
         //currentScroll - how far below top (0) we have scrolled
         let currentScroll = window.scrollY;
 
+        if (currentScroll > 0){
+            scrollBarRef.current.style.visibility = 'visible'
+        }
+        if (currentScroll <= 0){
+            scrollBarRef.current.style.visibility = 'hidden'
+        }
+
         // console.log(offset);
         console.log( 'MAX SCROLL:', maxScroll);
         console.log( 'CURRENT:', currentScroll);
