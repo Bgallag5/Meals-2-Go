@@ -1,7 +1,7 @@
+
 .header {
   height: auto;
   width: 100%;
-  z-index: 99;
   position: sticky;
   top: 0;
   left: 0;
@@ -48,10 +48,16 @@
     }
   }
 
+  &__scrollbar {
+    height: 5px;
+    width: 100%;
+    background-color: green;
+  }
+
   &__img {
     width: 100%;
     //background-position: center - making width slightly less than 100%? scale to fudge the exact width
-    transform: scale(100.2%);
+    transform: scale(100.25%) translateY(-5px);
     background: url("../assets/tablefood.jpeg");
     background-size: cover;
     background-position: center;

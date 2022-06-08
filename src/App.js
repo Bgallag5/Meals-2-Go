@@ -48,7 +48,7 @@ function App() {
   return (
     <Provider>
       <AppContext.Provider value={globalVars}>
-        <div>
+        <div className="app-container">
           {/* {state && <AppMessage />} */}
           <Cart />
           <Header />

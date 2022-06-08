@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import { AppContext } from "../../App";
 import { GlobalContext } from "../../store/GlobalStore";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -9,19 +9,44 @@ import AppMessage from "../UI/AppMessage";
 export default function Header() {
 
     const {handleToggleModal } = useContext(AppContext);
-
     const {items, appMessage } = useContext(GlobalContext);
-    console.log(appMessage);
-    // useEffect(() => {
-    //     if (appMessage?.msg){
-    //         setTimeout(() => {
-    //             clearAppMessage({})
-    //         }, appMessage.timer)
-    //     }
-    // }, [appMessage, clearAppMessage])
+
+    // const [currentScroll, setCurrentScroll] = useState(0);
+    const scrollBarRef = useRef('0%');
+    
+    
+    //get max window scroll
+    const handleScroll = () => {
+        const bodyEl = document.querySelector('.app-container')
+
+        //offset - height of viewport (height of what is on screen)
+        let offset = window.innerHeight;
+        //maxScroll - max we CAN scroll, so total body height - viewport height
+        let maxScroll = bodyEl.scrollHeight - offset;
+        //currentScroll - how far below top (0) we have scrolled
+        let currentScroll = window.scrollY;
+
+        // console.log(offset);
+        console.log( 'MAX SCROLL:', maxScroll);
+        console.log( 'CURRENT:', currentScroll);
+
+
+
+        //set width of scrollbar to currentScroll/maxScroll;
+        // let currentScroll = (maxScroll / window.scrollY);
+        console.dir(scrollBarRef);
+        const scrollValue = `${(currentScroll / maxScroll) * 100}%` ;
+        console.log(scrollValue);
+        scrollBarRef.current.style.width = scrollValue;
+
+
+    }
+    document.addEventListener('scroll', handleScroll);
+
+
 
   return (
-    <div>
+    <>
     {appMessage?.msg && <AppMessage />}
       <div className="header flex-col">
         <header className="header__main flex-row">
@@ -32,8 +57,9 @@ export default function Header() {
             <div className="header__main--cart--items flex-row">{items.reduce((acc, cur) => acc + cur.quantity, 0)}</div>
           </button>
         </header>
+          <div ref={scrollBarRef} className="header__scrollbar"></div>
       </div>
       <div className="header__img"></div>
-    </div>
+    </>
   );
 }

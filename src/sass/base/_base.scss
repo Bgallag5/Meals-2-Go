@@ -1,24 +1,28 @@
 /* clean CSS reset */
-*{
-    margin: 0;
-    padding: 0;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: inherit;
-  }
-  
-  html {
-    box-sizing: border-box;
-    font-size: 62.5%;
-  }
-  
-  body {
-    font-family: 'Montserrat', sans-serif;
-    min-height: 100vh;
-    padding: 0 1rem;
-  }
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+}
+
+.app-container{
+    width: 100%;
+      padding: 0 1rem;
+}

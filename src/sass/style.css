@@ -20,6 +20,10 @@ html {
 body {
   font-family: "Montserrat", sans-serif;
   min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
   padding: 0 1rem;
 }
 
@@ -104,7 +108,6 @@ body {
 .header {
   height: auto;
   width: 100%;
-  z-index: 99;
   position: sticky;
   top: 0;
   left: 0;
@@ -143,9 +146,14 @@ body {
   color: white;
   font-size: 1.8rem;
 }
+.header__scrollbar {
+  height: 5px;
+  width: 100%;
+  background-color: green;
+}
 .header__img {
   width: 100%;
-  transform: scale(100.2%);
+  transform: scale(100.25%) translateY(-5px);
   background: url("../assets/tablefood.jpeg");
   background-size: cover;
   background-position: center;
