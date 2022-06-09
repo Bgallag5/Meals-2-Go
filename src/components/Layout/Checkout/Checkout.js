@@ -78,6 +78,7 @@ export default function Checkout() {
   });
 
   return (
+    <div className="checkout--container">
     <div className="checkout flex-row">
       <div className="checkout__summary flex-col">
         <OrderSummary />
@@ -248,6 +249,7 @@ export default function Checkout() {
           </form>
         </Box>
       </div>
+    </div>
     </div>
   );
 }

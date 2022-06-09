@@ -520,6 +520,11 @@ a {
     transform: translate(-50%, -100%);
   }
 }
+.checkout--container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .checkout {
   min-height: 95vh;
   width: 90%;
