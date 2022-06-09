@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 import AppMessage from "../UI/AppMessage";
-import ScrollBar from '../UI/ScrollBar';
+import ScrollBar from "../UI/ScrollBar";
 
 export default function Header() {
   const { handleToggleModal } = useContext(AppContext);
@@ -28,7 +28,9 @@ export default function Header() {
             </div>
           </button>
         </header>
-        <ScrollBar />
+        <div className="scrollbar-container">
+          <ScrollBar />
+        </div>
       </div>
       <div className="header__img"></div>
     </>

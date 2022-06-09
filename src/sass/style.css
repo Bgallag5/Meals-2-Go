@@ -146,6 +146,12 @@ body {
   color: white;
   font-size: 1.8rem;
 }
+.header .scrollbar-container {
+  position: relative;
+  height: 5px;
+  width: 100%;
+  background-color: white;
+}
 .header__scrollbar {
   position: relative;
   height: 5px;
