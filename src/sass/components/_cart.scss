@@ -104,6 +104,10 @@
 
         .cart--btn-order {
           // color: $color-white;
+          & > * {
+              text-decoration: none;
+            color: black;
+          }
         }
       }
     }

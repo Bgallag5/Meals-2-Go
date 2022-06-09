@@ -52,15 +52,14 @@ function App() {
       <AppContext.Provider value={globalVars}>
         <div className="app-container">
           {/* {state && <AppMessage />} */}
+          <BrowserRouter >
           <Cart />
           <Header />
-          <BrowserRouter >
           <Routes>
             <Route path={'/'} element={<Menu />} />
             <Route path={'/checkout'} element={<Checkout />} />
           </Routes>
           </BrowserRouter>
-          {/* <Menu /> */}
         </div>
       </AppContext.Provider>
     </Provider>

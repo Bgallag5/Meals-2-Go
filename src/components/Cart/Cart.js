@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import CartItem from "./CartItem";
 import { AppContext } from "../../App";
 import { GlobalContext } from "../../store/GlobalStore";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   //order button does something
@@ -42,7 +43,7 @@ export default function Cart() {
               Close
             </button>
             <button className="btn btn-red text-regular cart--btn-order">
-              Order
+              <Link to={"/checkout"}>Order</Link>
             </button>
           </div>
         </div>

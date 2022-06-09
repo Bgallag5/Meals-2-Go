@@ -1,0 +1,62 @@
+.checkout {
+  min-height: 95vh;
+  width: 90%;
+  justify-content: center;
+  margin: 5rem auto;
+  background: $color-grey--light;
+  border-radius: $border-smooth;
+  box-shadow: $box-shadow;
+
+  & > * {
+    width: 50%;
+    padding: 1rem;
+    justify-content: left;
+  }
+
+  &__summary {
+  }
+
+  &__info {
+    border: 1px solid blue;
+  }
+}
+
+.form--container {
+  margin: 1rem;
+
+  .form {
+    &__group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid $color-grey;
+    }
+    .form--row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      & > * {
+          width: auto;
+          padding-bottom: 1rem;
+      }
+
+    //   .zipcode--input {
+    //     width: auto;
+    //     padding-bottom: 1rem;
+    //   }
+    }
+
+    &__text--input {
+      width: 75%;
+
+      &:last-child {
+        padding-bottom: 1rem;
+        color: red;
+      }
+    }
+  }
+}
