@@ -9,7 +9,7 @@
 
   & > * {
     width: 50%;
-    padding: 1rem;
+    padding: 2rem;
     justify-content: left;
   }
 
@@ -17,12 +17,12 @@
   }
 
   &__info {
-    border: 1px solid blue;
+      border-left: 1px solid grey;
   }
 }
 
 .form--container {
-  margin: 1rem;
+//   margin: 1rem;
 
   .form {
     &__group {

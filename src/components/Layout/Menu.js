@@ -3,6 +3,7 @@ import MenuItem from "../Meals/MenuItem";
 import Spinner from "../UI/Spinner";
 
 import { GlobalContext } from "../../store/GlobalStore";
+import Cart from '../Cart/Cart';
 
 export default function Menu() {
   const [loading, setLoading] = useState(true);
@@ -20,6 +21,8 @@ export default function Menu() {
   const { availableMeals } = useContext(GlobalContext);
 
   return (
+    <>
+    <Cart />
     <div className="menu flex-col">
       <div className="menu__about flex-col">
         <h1 className="menu__about--title text-large">
@@ -64,5 +67,6 @@ export default function Menu() {
         </>
       )}
     </div>
+    </>
   );
 }

@@ -1,10 +1,10 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef, useContext, useEffect } from "react";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 //components
 import Header from "./components/Layout/Header";
 import Menu from "./components/Layout/Menu";
-import Checkout from './components/Layout/Checkout';
+import Checkout from './components/Layout/Checkout/Checkout';
 import Cart from "./components/Cart/Cart";
 import Provider, { GlobalContext  } from "./store/GlobalStore";
 
@@ -44,6 +44,10 @@ function App() {
     handleClickOffModal,
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
   //regex get number from price string
   // console.log(('$17.99').replace(/[^\d.-]/g, ''));
 
@@ -53,7 +57,7 @@ function App() {
         <div className="app-container">
           {/* {state && <AppMessage />} */}
           <BrowserRouter >
-          <Cart />
+          {/* <Cart /> */}
           <Header />
           <Routes>
             <Route path={'/'} element={<Menu />} />

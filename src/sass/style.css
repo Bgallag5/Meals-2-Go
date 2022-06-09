@@ -27,6 +27,10 @@ body {
   padding: 0 1rem;
 }
 
+a {
+  text-decoration: none;
+}
+
 .hidden {
   display: none;
   visibility: hidden;
@@ -45,6 +49,14 @@ body {
 
 .jcsp {
   justify-content: space-between;
+}
+
+.mb1 {
+  margin-bottom: 1rem;
+}
+
+.mb2 {
+  margin-bottom: 2rem;
 }
 
 .text-large {
@@ -519,16 +531,13 @@ body {
 }
 .checkout > * {
   width: 50%;
-  padding: 1rem;
+  padding: 2rem;
   justify-content: left;
 }
 .checkout__info {
-  border: 1px solid blue;
+  border-left: 1px solid grey;
 }
 
-.form--container {
-  margin: 1rem;
-}
 .form--container .form__group {
   display: flex;
   flex-direction: column;
@@ -553,6 +562,10 @@ body {
 .form--container .form__text--input:last-child {
   padding-bottom: 1rem;
   color: red;
+}
+
+.order__summary {
+  width: 100% !important;
 }
 
 /*# sourceMappingURL=style.css.map */

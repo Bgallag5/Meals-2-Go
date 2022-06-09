@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import {
   TextInput,
   Input,
@@ -10,26 +10,31 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
+import OrderSummary from "./OrderSummary";
+
 export default function Checkout() {
+  const [formIsValid, setFormIsValid] = useState(false);
 
-    const [formIsValid, setFormIsValid] = useState(false);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
 
-    //on form change check for validity
-    const handleFormChange = (e) => {    
-        // e.preventDefault();
-        //call validate to check fields on every form change
-        let isValid = form.validate();
-        console.log(isValid);
-        //setState(valid/invalid) on every form change
-        if (isValid.hasErrors === true){
-            setFormIsValid(false);
-            return
-        }
-        if (isValid.hasErrors === false){
-            setFormIsValid(true);
-            return
-        }
+  //on form change check for validity
+  const handleFormChange = (e) => {
+    // e.preventDefault();
+    //call validate to check fields on every form change
+    let isValid = form.validate();
+    console.log(isValid);
+    //setState(valid/invalid) on every form change
+    if (isValid.hasErrors === true) {
+      setFormIsValid(false);
+      return;
     }
+    if (isValid.hasErrors === false) {
+      setFormIsValid(true);
+      return;
+    }
+  };
 
   const form = useForm({
     initialValues: {
@@ -39,41 +44,45 @@ export default function Checkout() {
       streetAddress: "",
       state: "",
       zipcode: "",
-      cardNumber: '',
-      cardExpiration: '',
-      cardCSV: '',
+      cardNumber: "",
+      cardExpiration: "",
+      cardCSV: "",
       termsOfService: false,
     },
 
     validate: {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
-      cardExpiration: (val) => (val.split('').includes('/') ? null : 'Invalid expiration' ),
-      zipcode: (val) => (val.length === 5 ? null : 'Invalid Zipcode'),
-      cardNumber: (val) => (val.length === 16 ? null : 'Invalid Card. Enter card number with no spaces or dashes'),
-      cardCSV: (val) => val.length === 3 ? null : "Invalid CSV",
-      state: (val) => (val ? null : 'Please Enter your State'),
-      termsOfService: (val) =>  (val === true ? 'Must agree to terms of service'  : null ),
+      cardExpiration: (val) =>
+        val.split("").includes("/") ? null : "Invalid expiration",
+      zipcode: (val) => (val.length === 5 ? null : "Invalid Zipcode"),
+      cardNumber: (val) =>
+        val.length === 16
+          ? null
+          : "Invalid Card. Enter card number with no spaces or dashes",
+      cardCSV: (val) => (val.length === 3 ? null : "Invalid CSV"),
+      state: (val) => (val ? null : "Please Enter your State"),
+      termsOfService: (val) =>
+        val === true ? "Must agree to terms of service" : null,
     },
   });
 
   return (
     <div className="checkout flex-row">
       <div className="checkout__summary flex-col">
-        <div className="checkout__summary--item">Potatoes</div>
-        <div className="checkout__summary--item">Potatoes</div>
-        <div className="checkout__summary--item">Potatoes</div>
+        <OrderSummary />
       </div>
       <div className="checkout__info flex-col">
+      <h2 className="text-large mb2">Checkout Info</h2> 
         <Box className="form--container">
           <form
-          onChangeCapture={(e) => handleFormChange(e)}
+            onChangeCapture={(e) => handleFormChange(e)}
             // onChange={(e) => handleFormChange(e)}
             className="form flex-col"
             onSubmit={form.onSubmit((values) => console.log(values))}
           >
             <Group className="form__group" position="left" mt="0">
               <TextInput
-              required
+                required
                 className="form__text--input"
                 label="First Name"
                 placeholder="John"
@@ -183,7 +192,7 @@ export default function Checkout() {
             </Group>
             <Group className="form__group">
               <TextInput
-              required
+                required
                 type="number"
                 onKeyDown={() => "return event.charCode != 32"}
                 onKeyDownCapture={() => "return event.charCode != 32"}
@@ -195,7 +204,7 @@ export default function Checkout() {
               />
               <Group className="form--row">
                 <TextInput
-                required
+                  required
                   label="Expiration"
                   inputMode="tel"
                   className="form__text--input"
@@ -203,8 +212,8 @@ export default function Checkout() {
                   {...form.getInputProps("cardExpiration")}
                 />
                 <TextInput
-                required
-                type="number"
+                  required
+                  type="number"
                   label="CSV"
                   className="form__text--input"
                   placeholder="123"
@@ -218,10 +227,12 @@ export default function Checkout() {
               mt="md"
               label="I agree to terms of service"
               checked={form.termsOfService}
-              {...form.getInputProps("termsOfService", {type: 'checkbox'})}
+              {...form.getInputProps("termsOfService", { type: "checkbox" })}
             />
             <Group position="right">
-              <Button disabled={!formIsValid} type="submit">Place Order</Button>
+              <Button disabled={!formIsValid} type="submit">
+                Place Order
+              </Button>
             </Group>
           </form>
         </Box>

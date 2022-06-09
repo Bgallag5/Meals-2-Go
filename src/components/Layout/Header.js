@@ -6,6 +6,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 import AppMessage from "../UI/AppMessage";
 import ScrollBar from "../UI/ScrollBar";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const { handleToggleModal } = useContext(AppContext);
@@ -16,7 +17,9 @@ export default function Header() {
       {appMessage?.msg && <AppMessage />}
       <div className="header flex-col">
         <header className="header__main flex-row">
-          <h1 className="header__main--title">Meals-2-Go</h1>
+          <Link to={"/"}>
+            <h1 className="header__main--title">Meals-2-Go</h1>
+          </Link>
           <button
             onClick={handleToggleModal}
             className="header__main--cart btn flex-row "
