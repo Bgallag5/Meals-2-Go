@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   TextInput,
   Input,
@@ -11,6 +11,26 @@ import {
 import { useForm } from "@mantine/form";
 
 export default function Checkout() {
+
+    const [formIsValid, setFormIsValid] = useState(false);
+
+    //on form change check for validity
+    const handleFormChange = (e) => {    
+        // e.preventDefault();
+        //call validate to check fields on every form change
+        let isValid = form.validate();
+        console.log(isValid);
+        //setState(valid/invalid) on every form change
+        if (isValid.hasErrors === true){
+            setFormIsValid(false);
+            return
+        }
+        if (isValid.hasErrors === false){
+            setFormIsValid(true);
+            return
+        }
+    }
+
   const form = useForm({
     initialValues: {
       firstName: "",
@@ -29,7 +49,10 @@ export default function Checkout() {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
       cardExpiration: (val) => (val.split('').includes('/') ? null : 'Invalid expiration' ),
       zipcode: (val) => (val.length === 5 ? null : 'Invalid Zipcode'),
-      cardNumber: (val) => (val.length === 16 ? null : 'Invalid Card. Enter card number with no spaces or dashes')
+      cardNumber: (val) => (val.length === 16 ? null : 'Invalid Card. Enter card number with no spaces or dashes'),
+      cardCSV: (val) => val.length === 3 ? null : "Invalid CSV",
+      state: (val) => (val ? null : 'Please Enter your State'),
+      termsOfService: (val) =>  (val === true ? 'Must agree to terms of service'  : null ),
     },
   });
 
@@ -43,6 +66,8 @@ export default function Checkout() {
       <div className="checkout__info flex-col">
         <Box className="form--container">
           <form
+          onChangeCapture={(e) => handleFormChange(e)}
+            // onChange={(e) => handleFormChange(e)}
             className="form flex-col"
             onSubmit={form.onSubmit((values) => console.log(values))}
           >
@@ -192,10 +217,11 @@ export default function Checkout() {
             <Checkbox
               mt="md"
               label="I agree to terms of service"
-              {...form.getInputProps("termsOfService", { type: "checkbox" })}
+              checked={form.termsOfService}
+              {...form.getInputProps("termsOfService", {type: 'checkbox'})}
             />
             <Group position="right">
-              <Button type="submit">Place Order</Button>
+              <Button disabled={!formIsValid} type="submit">Place Order</Button>
             </Group>
           </form>
         </Box>
