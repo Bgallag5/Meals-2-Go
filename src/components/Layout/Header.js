@@ -21,6 +21,7 @@ export default function Header() {
             <h1 className="header__main--title">Meals-2-Go</h1>
           </Link>
           <button
+          disabled={!items.length > 0}
             onClick={handleToggleModal}
             className="header__main--cart btn flex-row "
           >

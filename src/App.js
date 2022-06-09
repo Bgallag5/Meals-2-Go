@@ -7,6 +7,7 @@ import Menu from "./components/Layout/Menu";
 import Checkout from './components/Layout/Checkout/Checkout';
 import Cart from "./components/Cart/Cart";
 import Provider, { GlobalContext  } from "./store/GlobalStore";
+import { Email } from "./components/Layout/Email";
 
 export const AppContext = React.createContext();
 
@@ -44,6 +45,7 @@ function App() {
     handleClickOffModal,
   };
 
+  //scroll to top on load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [])
@@ -62,6 +64,7 @@ function App() {
           <Routes>
             <Route path={'/'} element={<Menu />} />
             <Route path={'/checkout'} element={<Checkout />} />
+            <Route path={'/email'} element={<Email />} />
           </Routes>
           </BrowserRouter>
         </div>

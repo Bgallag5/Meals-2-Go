@@ -11,13 +11,15 @@ import {
 import { useForm } from "@mantine/form";
 
 import OrderSummary from "./OrderSummary";
+// import Email from "../../../utils/emailtransporter";
 
 export default function Checkout() {
   const [formIsValid, setFormIsValid] = useState(false);
 
+  //scroll to top on load
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
 
   //on form change check for validity
   const handleFormChange = (e) => {
@@ -35,6 +37,15 @@ export default function Checkout() {
       return;
     }
   };
+
+  const handlePlaceOrder = async () => {
+    //validate?
+    let isValid = form.validate();
+
+    if (isValid){
+      //  new Email(form.values).sendOrderConfirm();
+    }
+  }
 
   const form = useForm({
     initialValues: {
@@ -72,7 +83,7 @@ export default function Checkout() {
         <OrderSummary />
       </div>
       <div className="checkout__info flex-col">
-      <h2 className="text-large mb2">Checkout Info</h2> 
+        <h2 className="text-large mb2">Checkout Info</h2>
         <Box className="form--container">
           <form
             onChangeCapture={(e) => handleFormChange(e)}
@@ -230,7 +241,7 @@ export default function Checkout() {
               {...form.getInputProps("termsOfService", { type: "checkbox" })}
             />
             <Group position="right">
-              <Button disabled={!formIsValid} type="submit">
+              <Button onClick={handlePlaceOrder} disabled={!formIsValid} type="submit">
                 Place Order
               </Button>
             </Group>
