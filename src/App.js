@@ -1,11 +1,11 @@
-import React, { useRef, useState, useContext } from "react";
-// import Provider from "./store/GlobalStore";
+import React, { useRef, useContext } from "react";
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 //components
 import Header from "./components/Layout/Header";
 import Menu from "./components/Layout/Menu";
+import Checkout from './components/Layout/Checkout';
 import Cart from "./components/Cart/Cart";
-import AppMessage from './components/UI/AppMessage';
 import Provider, { GlobalContext  } from "./store/GlobalStore";
 
 export const AppContext = React.createContext();
@@ -14,9 +14,11 @@ function App() {
   const state = useContext(GlobalContext);
   console.log(state);
 
+
   const modalRef = useRef();
   const modalContainerRef = useRef();
 
+  //close cart modal on click outside modal 
   const handleClickOffModal = (e) => {
     console.log("CLICKED!!!");
     //if user click inside the cart modal, return do nothing
@@ -52,7 +54,13 @@ function App() {
           {/* {state && <AppMessage />} */}
           <Cart />
           <Header />
-          <Menu />
+          <BrowserRouter >
+          <Routes>
+            <Route path={'/'} element={<Menu />} />
+            <Route path={'/checkout'} element={<Checkout />} />
+          </Routes>
+          </BrowserRouter>
+          {/* <Menu /> */}
         </div>
       </AppContext.Provider>
     </Provider>

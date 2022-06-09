@@ -43,11 +43,11 @@
     }
   }
 
-  .scrollbar-container{
-      position: relative;
-      height: 5px;
-      width: 100%;
-      background-color: white;
+  .scrollbar-container {
+    position: relative;
+    height: 5px;
+    width: 100%;
+    background-color: white;
   }
 
   &__scrollbar {
@@ -58,7 +58,6 @@
     display: flex;
     flex-direction: row;
     visibility: hidden;
-    // overflow-x: hidden;
 
     &::after {
       content: "";
@@ -75,18 +74,6 @@
       box-shadow: 0 0 10px rgba($color-primary--light, 1);
       border: 1px solid rgba($color-primary, 1);
     }
-
-    // &::before{
-    //     content: "";
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     width: 100vw !important;
-    //     height: 10px;
-    //     background-color: rgb(30, 211, 30);
-    //     z-index: 998;
-
-    // }
   }
 
   &__img {
