@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   TextInput,
   Input,
@@ -10,10 +10,14 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
+import { GlobalContext } from "../../../store/GlobalStore";
+
 import OrderSummary from "./OrderSummary";
+import { sendOrderConfirm } from "../../../utils/emailtransporter";
 // import Email from "../../../utils/emailtransporter";
 
 export default function Checkout() {
+  const {items, totalAmount} = useContext(GlobalContext)
   const [formIsValid, setFormIsValid] = useState(false);
 
   //scroll to top on load
@@ -38,11 +42,14 @@ export default function Checkout() {
     }
   };
 
-  const handlePlaceOrder = async () => {
+  const handlePlaceOrder = async (e) => {
+    e.preventDefault();
     //validate?
     let isValid = form.validate();
 
     if (isValid){
+      console.log(form.values);
+      sendOrderConfirm(form.values);
       //  new Email(form.values).sendOrderConfirm();
     }
   }
