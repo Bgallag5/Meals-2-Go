@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Layout/Header";
 import Menu from "./components/Layout/Menu";
 import Checkout from "./components/Layout/Checkout/Checkout";
-import Cart from "./components/Cart/Cart";
 import Provider, { GlobalContext } from "./store/GlobalStore";
 import { Email } from "./components/Layout/Email";
 
