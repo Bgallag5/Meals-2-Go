@@ -13,6 +13,7 @@
   &__cart {
     min-height: 50rem;
     height: auto;
+    max-height: 90vh;
     width: 50%;
     overflow-y: scroll;
     background-color: $color-white;

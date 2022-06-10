@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import { AppContext } from "../../App";
 import { GlobalContext } from "../../store/GlobalStore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,6 +11,19 @@ import { Link } from "react-router-dom";
 export default function Header() {
   const { handleToggleModal } = useContext(AppContext);
   const { items, appMessage } = useContext(GlobalContext);
+  const cartButtonRef = useRef();
+
+  //when items are added/removed add className 'ripple' for 1 second
+  useEffect(() => {
+      //remove ripple in case click twice within 1 second 
+    cartButtonRef.current.classList.remove('ripple')
+    cartButtonRef.current.classList.add('ripple');
+
+    setTimeout(() => {
+        cartButtonRef.current.classList.remove('ripple')
+    }, 1500)
+  }, [items]);
+
 
   return (
     <>
@@ -21,6 +34,7 @@ export default function Header() {
             <h1 className="header__main--title">Meals-2-Go</h1>
           </Link>
           <button
+          ref={cartButtonRef}
           disabled={!items.length > 0}
             onClick={handleToggleModal}
             className="header__main--cart btn flex-row "

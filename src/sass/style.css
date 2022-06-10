@@ -143,10 +143,13 @@ a {
   text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
 }
 .header__main--cart {
+  position: relative;
   width: 15rem;
   justify-content: space-around;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
   color: rgb(50, 50, 50);
+  background-color: rgb(242, 242, 242);
+  overflow: hidden;
 }
 .header__main--cart--items {
   background-color: #e63946;
@@ -198,6 +201,44 @@ a {
   height: 30rem;
 }
 
+.pulse {
+  animation: pulse 1s infinite;
+}
+
+.ripple::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 1rem;
+  width: 1rem;
+  opacity: 0;
+  background-color: #a8dadc;
+  border-radius: 50%;
+  animation: rippleCenterOut 1.5s ease-out, fade 1.5s ease-out;
+}
+
+@keyframes rippleCenterOut {
+  0% {
+    transform: translate(-100%, -100%);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(-100%, -100%) scale(50);
+  }
+  100% {
+    transform: translate(-100%, -100%) scale(50);
+    opacity: 0;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .menu {
   height: auto;
   min-height: 95vh;
@@ -292,6 +333,7 @@ a {
 .cart__cart {
   min-height: 50rem;
   height: auto;
+  max-height: 90vh;
   width: 50%;
   overflow-y: scroll;
   background-color: rgb(242, 242, 242);

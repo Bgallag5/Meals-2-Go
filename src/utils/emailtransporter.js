@@ -5,7 +5,7 @@ export const sendOrderConfirm = (formValues) => {
   console.log(firstName, cardCSV);
 
   const message = createEmailMarkup(formValues);
-console.log(message);
+    console.log(message);
   const emailData = {
     message,
     from_name: "Meals 2 Go",
@@ -27,7 +27,6 @@ console.log(message);
 
 const createEmailMarkup = (formValues) => {
   const { firstName, cardCSV } = formValues;
-  console.log(firstName);
   return (
       <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
         <h4>Hello {`${firstName}`}!</h4>
