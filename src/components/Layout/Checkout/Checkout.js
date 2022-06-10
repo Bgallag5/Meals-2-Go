@@ -242,13 +242,13 @@ export default function Checkout() {
                 />
               </Group>
             </Group>
+            <Group className="flex-col" position="left">
             <Checkbox
               mt="md"
-              label="I agree to terms of service"
+              label="This site is for learning purposes only and is not a real restaurant. Please DO NOT ENTER REAL CREDIT CARD INFORMATION!"
               checked={form.termsOfService}
               {...form.getInputProps("termsOfService", { type: "checkbox" })}
             />
-            <Group position="right">
               <Button onClick={handlePlaceOrder} disabled={!formIsValid} type="submit">
                 Place Order
               </Button>
