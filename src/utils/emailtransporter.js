@@ -1,12 +1,12 @@
 import emailjs from "@emailjs/browser";
 
-export const sendOrderConfirm = (formValues) => {
+export const sendOrderConfirm = (formValues, items, totalAmount) => {
 
   const EMAIL_PUBLIC_KEY = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
   const { firstName, cardCSV, email } = formValues;
   console.log(firstName, cardCSV);
 
-  const message = createEmailMarkup(formValues);
+  const message = createEmailMarkup(formValues, items, totalAmount);
   console.log(message);
   const emailData = {
       from_name: "Meals 2 Go",
@@ -27,23 +27,36 @@ export const sendOrderConfirm = (formValues) => {
     );
 };
 
-const createEmailMarkup = (formValues) => {
-  const { firstName, cardCSV } = formValues;
+const orderSummary = (formValues, items, totalAmount) => {
+    return (
+        `<div>
+        <div>
+        ${items.map(item => {
+          return `<span> <h3>${item.quantity}x</h3> ${item.name}</span>`
+        })}
+        </div>
+        
+      <h2>Order Total: $${totalAmount} <h2> 
+      <h4>Delivery to: ${formValues.streetAddress}, ${formValues.state} ${formValues.zipcode} </h4>
+      </div>
+
+      `
+    )
+}
+
+const createEmailMarkup = (formValues, items, totalAmount) => {
+  const { firstName, cardCSV, cardNumber } = formValues;
+  const summary = orderSummary(formValues, items, totalAmount);
+  console.log(summary);
   return (
       `
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <h4>Hello ${firstName}!</h4>
+    <div>
+      <h4>Hello ${firstName}! We got your order!</h4>
+        ${summary}
       <p>
-        Forgot your password?{" "}
-        <a target="__blank" rel="noreferrer" href="www.google.com">
-          Click here to reset it.
-        </a>
+        We are preparing your order placed with the credit card ending in ************${cardNumber.slice(12, 17)}. The order will be
+        delivered to your address within the given delivery time. We hope you enjoy! And don't forget to leave a review if you are satisfied with your experience. 🙂
       </p>
-      <p>
-        If you need help or have any questions please reach out to our amazing
-        staff. You can find them on our Contact Page. CARD CSV: ${cardCSV}
-      </p>
-      <p>If you did not request a password reset please ignore this email 🙂</p>
       <p>- Ben Gallagher, Owner</p>
     </div>
     `

@@ -49,7 +49,7 @@ export default function Checkout() {
 
     if (isValid){
       console.log(form.values);
-      sendOrderConfirm(form.values);
+      sendOrderConfirm(form.values, items, totalAmount);
       //  new Email(form.values).sendOrderConfirm();
     }
   }
