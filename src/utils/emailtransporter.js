@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 export const sendOrderConfirm = (formValues, items, totalAmount) => {
 
   const EMAIL_PUBLIC_KEY = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
+  console.log(EMAIL_PUBLIC_KEY);
   const { firstName, cardCSV, email } = formValues;
   console.log(firstName, cardCSV);
 
