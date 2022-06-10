@@ -70,8 +70,7 @@ export default function Checkout() {
 
     validate: {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
-      cardExpiration: (val) =>
-        val.split("").includes("/") ? null : "Invalid expiration",
+      cardExpiration: (val) => val.split("").includes("/") ? null : "Invalid expiration",
       zipcode: (val) => (val.length === 5 ? null : "Invalid Zipcode"),
       cardNumber: (val) =>
         val.length === 16
