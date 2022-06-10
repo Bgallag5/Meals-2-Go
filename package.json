@@ -33,7 +33,7 @@
   },
   "scripts": {
     "start": "concurrently \"sass src/sass/main.scss src/sass/style.css -w\"  \"react-scripts start\"",
-    "build": "react-scrips build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
