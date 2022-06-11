@@ -14,7 +14,6 @@ import { GlobalContext } from "../../../store/GlobalStore";
 
 import OrderSummary from "./OrderSummary";
 import { sendOrderConfirm } from "../../../utils/emailtransporter";
-// import Email from "../../../utils/emailtransporter";
 
 export default function Checkout() {
   const {items, totalAmount} = useContext(GlobalContext)
@@ -259,3 +258,6 @@ export default function Checkout() {
     </div>
   );
 }
+
+// git@github.com:academind/react-complete-guide-code.git
+// git@github.com:academind/react-complete-guide-code.gitnpm start
