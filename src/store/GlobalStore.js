@@ -72,3 +72,35 @@ const Provider = (props) => {
 };
 
 export default Provider;
+
+
+
+// import { configureStore } from "@reduxjs/toolkit";
+// import { Provider } from "react-redux";
+// import { combineReducers } from "redux";
+
+// import cart from "./reducers/cart";
+
+// const preLoadedState = {
+//   user: "Ben",
+//   cartItems: [],
+//   cartVisible: false,
+//   cart: cart
+// };
+
+// console.log(cart);
+
+// const combinedReducers = combineReducers({
+//   cart: cart.reducer,
+// });
+
+// const store = configureStore({
+//   reducer: combinedReducers,
+//   preloadedState: preLoadedState,
+// });
+
+// const StoreProvider = (props) => {
+//   return <Provider store={store}></Provider>;
+// };
+
+// export { store, StoreProvider };
