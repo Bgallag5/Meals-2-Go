@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { GlobalContext } from "../../store/GlobalStore";
 import { useParams } from "react-router-dom";
 
-export default function SingleItemView({ meal }) {
+export default function SingleItemView() {
   const [itemQuantity, setItemQuantity] = useState(1);
 
   const { addItem, setAppMessage, items, availableMeals } = useContext(GlobalContext);
@@ -42,7 +42,7 @@ export default function SingleItemView({ meal }) {
         </div>
         <div className="meal__add--btn">
           <button
-            onClick={() => addItem(meal, itemQuantity)}
+            onClick={() => addItem(selectedMeal, itemQuantity)}
             className="btn--add--meal btn text-small"
           >
             + Add

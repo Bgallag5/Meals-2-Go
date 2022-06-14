@@ -1,5 +1,5 @@
 import React, { useRef, useContext, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import {useParams} from 'react-router-dom';
 
 //components
@@ -57,8 +57,9 @@ function App() {
           <BrowserRouter>
             <Header />
             <Routes>
-              <Route path={"/menu"} element={<Menu />} />
-              <Route exact path={"/menu-item/:itemId"} element={<SingleItemView />} />
+              <Route exact path={"/"}  element={<Navigate to={'/menu'} />}/>
+              <Route exact path={"/menu"} element={<Menu />} />
+              <Route path={"/menu-item/:itemId"} element={<SingleItemView />} />
               <Route path={"/checkout"} element={<Checkout />} />
             </Routes>
           </BrowserRouter>
