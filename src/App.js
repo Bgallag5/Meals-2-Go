@@ -1,11 +1,13 @@
 import React, { useRef, useContext, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {useParams} from 'react-router-dom';
 
 //components
 import Header from "./components/Layout/Header";
 import Menu from "./components/Layout/Menu";
 import Checkout from "./components/Layout/Checkout/Checkout";
 import Provider, { GlobalContext } from "./store/GlobalStore";
+import SingleItemView from './components/Layout/SingleItemView';
 
 export const AppContext = React.createContext();
 
@@ -13,6 +15,9 @@ function App() {
   const state = useContext(GlobalContext);
   const modalRef = useRef();
   const modalContainerRef = useRef();
+
+  const params = useParams();
+  console.log(params);
 
   //close cart modal on click outside modal
   const handleClickOffModal = (e) => {
@@ -52,7 +57,8 @@ function App() {
           <BrowserRouter>
             <Header />
             <Routes>
-              <Route path={"/"} element={<Menu />} />
+              <Route path={"/menu"} element={<Menu />} />
+              <Route exact path={"/menu-item/:itemId"} element={<SingleItemView />} />
               <Route path={"/checkout"} element={<Checkout />} />
             </Routes>
           </BrowserRouter>

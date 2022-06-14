@@ -6,7 +6,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 import AppMessage from "../UI/AppMessage";
 import ScrollBar from "../UI/ScrollBar";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   const { handleToggleModal } = useContext(AppContext);
@@ -30,9 +30,9 @@ export default function Header() {
       {appMessage?.msg && <AppMessage />}
       <div className="header flex-col">
         <header className="header__main flex-row">
-          <Link to={"/"}>
+          <NavLink to={"/menu"}>
             <h1 className="header__main--title">Meals-2-Go</h1>
-          </Link>
+          </NavLink>
           <button
           ref={cartButtonRef}
           disabled={!items.length > 0}

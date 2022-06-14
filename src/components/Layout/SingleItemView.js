@@ -1,12 +1,18 @@
 import React, { useContext, useState } from "react";
 import { GlobalContext } from "../../store/GlobalStore";
-import { NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-export default function MenuItem({ meal }) {
+export default function SingleItemView({ meal }) {
   const [itemQuantity, setItemQuantity] = useState(1);
 
-  const { id, name, price, description, category, course, img } = meal;
-  const { addItem, setAppMessage } = useContext(GlobalContext);
+  const { addItem, setAppMessage, items, availableMeals } = useContext(GlobalContext);
+  console.log(items);
+  
+  const params = useParams();
+  console.log(params);
+  let selectedMeal = availableMeals.find(item => item.id == params.itemId) ;
+  console.log(selectedMeal);
+    const { id, name, price, description, category, course, img } = selectedMeal;
 
   //button subtracts items to cart with accurate quantity
 
@@ -15,21 +21,15 @@ export default function MenuItem({ meal }) {
     setItemQuantity(Number(e.target.value));
   };
 
-  const handleSelectMenuItem = () => {
-    //route to single view
-  };
-
   return (
     <div className="meal flex-row">
-      <NavLink to={`/menu-item/${id}`}>
-        <div onClick={handleSelectMenuItem} className="meal__info flex-col">
-          <p className="text-regular-bold">{name}</p>
-          <p className="meal__info--description text-regular-italic">
-            {description}
-          </p>
-          <p className="meal__info--price text-regular">{price}</p>
-        </div>
-      </NavLink>
+      <div className="meal__info flex-col">
+        <p className="text-regular-bold">{name}</p>
+        <p className="meal__info--description text-regular-italic">
+          {description}
+        </p>
+        <p className="meal__info--price text-regular">{price}</p>
+      </div>
       <div className="meal__add flex-col text-small">
         <div className="meal__add--amount flex-row">
           <p>Quantity</p>
