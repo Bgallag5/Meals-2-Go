@@ -6,7 +6,6 @@ import Header from "./components/Layout/Header";
 import Menu from "./components/Layout/Menu";
 import Checkout from "./components/Layout/Checkout/Checkout";
 import Provider, { GlobalContext } from "./store/GlobalStore";
-import { Email } from "./components/Layout/Email";
 
 export const AppContext = React.createContext();
 
@@ -46,21 +45,15 @@ function App() {
     window.scrollTo(0, 0);
   }, []);
 
-  //regex get number from price string
-  // console.log(('$17.99').replace(/[^\d.-]/g, ''));
-
   return (
     <Provider>
       <AppContext.Provider value={globalVars}>
         <div className="app-container">
-          {/* {state && <AppMessage />} */}
           <BrowserRouter>
-            {/* <Cart /> */}
             <Header />
             <Routes>
               <Route path={"/"} element={<Menu />} />
               <Route path={"/checkout"} element={<Checkout />} />
-              <Route path={"/email"} element={<Email />} />
             </Routes>
           </BrowserRouter>
         </div>
