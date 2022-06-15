@@ -9,6 +9,7 @@ import Checkout from "./components/Layout/Checkout/Checkout";
 import Provider, { GlobalContext } from "./store/GlobalStore";
 import SingleItemView from './components/Layout/SingleItemView';
 import SignUp from "./components/Layout/SignUp";
+import Login from "./components/Layout/Login";
 
 export const AppContext = React.createContext();
 
@@ -65,6 +66,7 @@ function App() {
               <Route exact path={"/"}  element={ <Navigate to={'/menu'} />}/>
               <Route exact path={"/menu"} element={<Menu />} />
               <Route exact path={"/signup"} element={<SignUp />} />
+              <Route exact path={"/login"} element={<Login />} />
               <Route path={"/menu-item/:itemId"} element={<SingleItemView />} />
               <Route path={"/checkout"} element={<Checkout />} />
             </Routes>

@@ -1,13 +1,17 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { TextInput, Checkbox, Button, Group, Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { signupUser } from "../../utils/auth";
 import Spinner from "../UI/Spinner";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../../store/GlobalStore";
 
 export default function SignUp() {
+  const {appMessage, setAppMessage, clearAppMessage} = useContext(GlobalContext);
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(false);
   const [authMsg, setAuthMsg] = useState("Invalid");
+  const [user, setUser] = useState(false)
   const authMsgRef = useRef();
   const form = useForm({
     initialValues: {
@@ -34,13 +38,14 @@ export default function SignUp() {
     const response = await signupUser(user);
     console.log(response);
 
-    if (response.ok) {
+    if (response) {
         console.log('GOOD TO GO!!!!!!');
         //...dispatch setUser
       setLoading(false);
+      setAppMessage({msg: "You are logged in"});
       return (
-        // <Navigate to={"/menu"} />
-        window.location = '/menu'
+          //...return to menu on successful login
+        navigate('/')
           );
     } else {
       setLoading(false);
