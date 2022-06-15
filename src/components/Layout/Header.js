@@ -16,16 +16,16 @@ export default function Header() {
   //when items are added/removed add className 'ripple' for 1 second
   useEffect(() => {
     console.log(items);
-    if ( items.length <= 0 ) return
-      //remove ripple in case click twice within 1 second 
-    cartButtonRef.current.classList.remove('ripple')
-    cartButtonRef.current.classList.add('ripple');
+    if (items.length <= 0) return;
+    //remove ripple in case click twice within 1 second
+    cartButtonRef.current.classList.remove("ripple");
+    cartButtonRef.current.classList.add("ripple");
 
     setTimeout(() => {
-        cartButtonRef.current.classList.remove('ripple')
-    }, 1500)
+      cartButtonRef.current.classList.remove("ripple");
+    }, 1500);
   }, [items]);
-console.log(appMessage);
+  console.log(appMessage);
 
   return (
     <>
@@ -36,8 +36,8 @@ console.log(appMessage);
             <h1 className="header__main--title">Meals-2-Go</h1>
           </NavLink>
           <button
-          ref={cartButtonRef}
-          disabled={!items.length > 0}
+            ref={cartButtonRef}
+            disabled={!items.length > 0}
             onClick={handleToggleModal}
             className="header__main--cart btn flex-row "
           >

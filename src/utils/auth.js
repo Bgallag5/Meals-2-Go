@@ -69,7 +69,7 @@ export const loginUser = async (user) => {
     if (response.ok) {
       return response.json();
     } else {
-      throw new Error(response)
+      return response.json();
     }
   } catch (err) {
     console.log(err);

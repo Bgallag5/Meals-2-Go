@@ -1,5 +1,5 @@
 import React, { useState, useContext, useRef } from "react";
-import { TextInput, Checkbox, Button, Group, Box } from "@mantine/core";
+import { TextInput, Button, Group, Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { loginUser } from "../../utils/auth";
 import { useNavigate } from "react-router-dom";
@@ -43,9 +43,9 @@ export default function Login() {
         //...return to menu on successful login
         navigate("/")
       );
-    } else {
+    } else if (response.error) {
       setLoading(false);
-      setAuthMsg("Bad Auth");
+      setAuthMsg(response.error.message);
       authMsgRef.current.style.display = "inline";
     }
   };
