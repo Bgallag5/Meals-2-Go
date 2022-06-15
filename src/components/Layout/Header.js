@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Header() {
   const { handleToggleModal } = useContext(AppContext);
-  const { items, appMessage } = useContext(GlobalContext);
+  const { items, appMessage, availableMeals } = useContext(GlobalContext);
   const cartButtonRef = useRef();
 
   //when items are added/removed add className 'ripple' for 1 second
@@ -34,6 +34,7 @@ export default function Header() {
         <header className="header__main flex-row">
           <NavLink to={"/menu"}>
             <h1 className="header__main--title">Meals-2-Go</h1>
+            <h1>{availableMeals[1].name}</h1>
           </NavLink>
           <button
           ref={cartButtonRef}

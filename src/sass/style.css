@@ -621,4 +621,11 @@ a {
   width: 100% !important;
 }
 
+.signup {
+  align-items: center;
+}
+.signup__msg {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */
