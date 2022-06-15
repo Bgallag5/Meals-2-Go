@@ -34,7 +34,6 @@ console.log(appMessage);
         <header className="header__main flex-row">
           <NavLink to={"/menu"}>
             <h1 className="header__main--title">Meals-2-Go</h1>
-            <h1>{appMessage?.msg}</h1>
           </NavLink>
           <button
           ref={cartButtonRef}
