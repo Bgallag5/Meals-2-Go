@@ -15,6 +15,8 @@ export default function Header() {
 
   //when items are added/removed add className 'ripple' for 1 second
   useEffect(() => {
+    console.log(items);
+    if ( items.length <= 0 ) return
       //remove ripple in case click twice within 1 second 
     cartButtonRef.current.classList.remove('ripple')
     cartButtonRef.current.classList.add('ripple');

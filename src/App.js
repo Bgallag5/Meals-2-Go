@@ -1,4 +1,4 @@
-import React, { useRef, useContext, useEffect } from "react";
+import React, { useRef, useContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import {useParams} from 'react-router-dom';
 
@@ -8,6 +8,7 @@ import Menu from "./components/Layout/Menu";
 import Checkout from "./components/Layout/Checkout/Checkout";
 import Provider, { GlobalContext } from "./store/GlobalStore";
 import SingleItemView from './components/Layout/SingleItemView';
+import SignUp from "./components/Layout/SignUp";
 
 export const AppContext = React.createContext();
 
@@ -50,6 +51,10 @@ function App() {
     window.scrollTo(0, 0);
   }, []);
 
+  // const [user, setUser] = useState('Ben');
+  // console.log(user);
+  // <Route exact path={"/signup"} element={user ? <Navigate to={'/menu'} /> : <SignUp />} />
+
   return (
     <Provider>
       <AppContext.Provider value={globalVars}>
@@ -57,8 +62,9 @@ function App() {
           <BrowserRouter>
             <Header />
             <Routes>
-              <Route exact path={"/"}  element={<Navigate to={'/menu'} />}/>
+              <Route exact path={"/"}  element={ <Navigate to={'/menu'} />}/>
               <Route exact path={"/menu"} element={<Menu />} />
+              <Route exact path={"/signup"} element={<SignUp />} />
               <Route path={"/menu-item/:itemId"} element={<SingleItemView />} />
               <Route path={"/checkout"} element={<Checkout />} />
             </Routes>

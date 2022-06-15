@@ -10,7 +10,7 @@ export default function SingleItemView() {
   
   const params = useParams();
   console.log(params);
-  let selectedMeal = availableMeals.find(item => item.id == params.itemId) ;
+  let selectedMeal = availableMeals.find(item => item.id == params.itemId);
   console.log(selectedMeal);
     const { id, name, price, description, category, course, img } = selectedMeal;
 

@@ -2,9 +2,7 @@ import emailjs from "@emailjs/browser";
 
 export const sendOrderConfirm = (formValues, items, totalAmount) => {
 
-  const EMAIL_PUBLIC_KEY = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
-  console.log(process.env);
-  console.log(EMAIL_PUBLIC_KEY);
+  // const EMAIL_PUBLIC_KEY = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
   const { firstName, cardCSV, email } = formValues;
   console.log(firstName, cardCSV);
 
@@ -18,7 +16,7 @@ export const sendOrderConfirm = (formValues, items, totalAmount) => {
   };
 
   emailjs
-    .send("service_s84ftdq", "template_mehq8zs", emailData, EMAIL_PUBLIC_KEY)
+    // .send("service_s84ftdq", "template_mehq8zs", emailData, EMAIL_PUBLIC_KEY)
     .then(
       (result) => {
         console.log(result.text);
