@@ -7,6 +7,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import AppMessage from "../UI/AppMessage";
 import ScrollBar from "../UI/ScrollBar";
 import { NavLink, Link, useNavigate } from "react-router-dom";
+import LogInOutBtn from "./LogInOutBtn";
 
 export default function Header() {
   const { handleToggleModal } = useContext(AppContext);
@@ -43,7 +44,8 @@ export default function Header() {
           </NavLink>
           <h2>{user && user.email}</h2>
           {/* <Link to={'/login'}>Login</Link> */}
-          <button onClick={handleLogout}>Logout</button>
+          {/* <button onClick={handleLogout}>Logout</button> */}
+          <LogInOutBtn handleLogout={handleLogout} />
           <button
             ref={cartButtonRef}
             disabled={!items.length > 0}

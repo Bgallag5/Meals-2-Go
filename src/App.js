@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import {useParams} from 'react-router-dom';
 
 //components
-import Header from "./components/Layout/Header";
+import Header from "./components/Header/Header";
 import Menu from "./components/Layout/Menu";
 import Checkout from "./components/Layout/Checkout/Checkout";
 import Provider, { GlobalContext } from "./store/GlobalStore";
