@@ -105,9 +105,26 @@ export const reducer = (state, { type, payload }) => {
           emoji: undefined,
         },
       };
+
+      case 'LOGIN_USER':
+        console.log(payload);
+
+        return {
+          ...state,
+          user: {
+            // isLoggedIn: true,
+            email: payload.email,
+            idToken: payload.idToken,
+          }
+        };
   }
 };
 
+// user: {
+//   isLoggedIn: undefined,
+//   email: undefined,
+//   tokenId: undefined,
+// },
 
 
 // import { createSlice } from "@reduxjs/toolkit";

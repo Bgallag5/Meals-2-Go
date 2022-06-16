@@ -6,16 +6,15 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 import AppMessage from "../UI/AppMessage";
 import ScrollBar from "../UI/ScrollBar";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function Header() {
   const { handleToggleModal } = useContext(AppContext);
-  const { items, appMessage, availableMeals } = useContext(GlobalContext);
+  const { items, appMessage, availableMeals, user } = useContext(GlobalContext);
   const cartButtonRef = useRef();
 
   //when items are added/removed add className 'ripple' for 1 second
   useEffect(() => {
-    console.log(items);
     if (items.length <= 0) return;
     //remove ripple in case click twice within 1 second
     cartButtonRef.current.classList.remove("ripple");
@@ -25,8 +24,9 @@ export default function Header() {
       cartButtonRef.current.classList.remove("ripple");
     }, 1500);
   }, [items]);
-  console.log(appMessage);
 
+  console.log(user);
+  console.log(items);
   return (
     <>
       {appMessage?.msg && <AppMessage />}
@@ -35,6 +35,8 @@ export default function Header() {
           <NavLink to={"/menu"}>
             <h1 className="header__main--title">Meals-2-Go</h1>
           </NavLink>
+          <h2>{user && user.email}</h2>
+          <Link to={'/login'}>Login</Link>
           <button
             ref={cartButtonRef}
             disabled={!items.length > 0}

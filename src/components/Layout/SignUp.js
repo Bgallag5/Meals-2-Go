@@ -7,11 +7,10 @@ import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../store/GlobalStore";
 
 export default function SignUp() {
-  const {appMessage, setAppMessage, clearAppMessage} = useContext(GlobalContext);
+  const {appMessage, setAppMessage, clearAppMessage, user} = useContext(GlobalContext);
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false);
   const [authMsg, setAuthMsg] = useState("Invalid");
-  const [user, setUser] = useState(false)
   const authMsgRef = useRef();
   const form = useForm({
     initialValues: {

@@ -3,13 +3,15 @@ import { TextInput, Button, Group, Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { loginUser } from "../../utils/auth";
 import { useNavigate } from "react-router-dom";
+import {GlobalContext} from '../../store/GlobalStore';
 
 import Spinner from "../UI/Spinner";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
   const [authMsg, setAuthMsg] = useState("Invalid");
-  const [user, setUser] = useState(false);
+  const {login, user} = useContext(GlobalContext)
+  // const [user, setUser] = useState(false);
   const navigate = useNavigate();
   const authMsgRef = useRef();
   const form = useForm({
@@ -27,7 +29,7 @@ export default function Login() {
     setLoading(true);
     console.log(values);
     const { email, password } = values;
-    const user = {
+    let user = {
       email,
       password,
     };
@@ -35,14 +37,21 @@ export default function Login() {
     console.log(response);
 
     if (response.idToken) {
-      console.log("GOOD TO GO!!!!!!");
+      console.log("LOGGED IN!!!!!!");
       //...dispatch setUser
       setLoading(false);
-      // setAppMessage({msg: "You are logged in"});
-      return (
-        //...return to menu on successful login
-        navigate("/")
-      );
+      let currentUser = {
+        email: response.email,
+        idToken: response.idToken,
+        expires: response.expiresIn
+      }
+      // bgallag5@gmail.com
+      login(currentUser);
+      // login(currentUser)
+      // return (
+      //   //...return to menu on successful login
+      //   navigate("/")
+      // );
     } else if (response.error) {
       setLoading(false);
       setAuthMsg(response.error.message);
@@ -59,7 +68,7 @@ export default function Login() {
         <Spinner />
       ) : (
         <Box sx={{ maxWidth: 300 }} mx="auto">
-          <form onSubmit={form.onSubmit((values) => handleFormSubmit(values))}>
+          <form onSubmit={form.onSubmit(( values) => handleFormSubmit(values))}>
             <TextInput
               required
               value={""}

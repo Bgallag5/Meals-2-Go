@@ -10,6 +10,11 @@ const preLoadedState = {
   items: [],
   totalAmount: 0,
   availableMeals: meals,
+  user: {
+    isLoggedIn: undefined,
+    email: undefined,
+    idToken: undefined,
+  },
   appMessage: {
     msg: undefined,
     timer: undefined,
@@ -48,6 +53,11 @@ const Provider = (props) => {
     setAppMessage({ msg: "Removed From Cart", color: "red", timer: 1, emoji: `❗️` });
   };
 
+  const login = (user) => {
+    dispatch({type: 'LOGIN_USER', payload: user});
+    // setAppMessage({msg: `Welcome ${user.email}`, timer: 1, emoji: '❗️'})
+  }
+
   //full state context passed into our context provider
   //(we pass in state variables from our reducer, so that interacting with those vars through context hits our global state)
   const contextValue = {
@@ -56,12 +66,14 @@ const Provider = (props) => {
     totalAmount: state.totalAmount,
     availableMeals: meals,
     appMessage: state.appMessage,
+    user: state.user,
     //global state functions
     addItem,
     removeItem,
     reduceItem,
     setAppMessage,
     clearAppMessage,
+    login,
   };
 
   return (

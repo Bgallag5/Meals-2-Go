@@ -17,6 +17,7 @@ function App() {
   const state = useContext(GlobalContext);
   const modalRef = useRef();
   const modalContainerRef = useRef();
+  console.log(state);
 
   const params = useParams();
   console.log(params);
@@ -66,7 +67,7 @@ function App() {
               <Route exact path={"/"}  element={ <Navigate to={'/menu'} />}/>
               <Route exact path={"/menu"} element={<Menu />} />
               <Route exact path={"/signup"} element={<SignUp />} />
-              <Route exact path={"/login"} element={<Login />} />
+              <Route path={"/login"} element={<Login />} />
               <Route path={"/menu-item/:itemId"} element={<SingleItemView />} />
               <Route path={"/checkout"} element={<Checkout />} />
             </Routes>
