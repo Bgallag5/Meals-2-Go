@@ -6,12 +6,13 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 import AppMessage from "../UI/AppMessage";
 import ScrollBar from "../UI/ScrollBar";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const { handleToggleModal } = useContext(AppContext);
-  const { items, appMessage, availableMeals, user } = useContext(GlobalContext);
+  const { items, appMessage, availableMeals, user, logout } = useContext(GlobalContext);
   const cartButtonRef = useRef();
+  const navigate = useNavigate();
 
   //when items are added/removed add className 'ripple' for 1 second
   useEffect(() => {
@@ -25,6 +26,11 @@ export default function Header() {
     }, 1500);
   }, [items]);
 
+  const handleLogout = () => {
+    logout();
+    navigate('/menu');
+  }
+
   console.log(user);
   console.log(items);
   return (
@@ -36,7 +42,8 @@ export default function Header() {
             <h1 className="header__main--title">Meals-2-Go</h1>
           </NavLink>
           <h2>{user && user.email}</h2>
-          <Link to={'/login'}>Login</Link>
+          {/* <Link to={'/login'}>Login</Link> */}
+          <button onClick={handleLogout}>Logout</button>
           <button
             ref={cartButtonRef}
             disabled={!items.length > 0}

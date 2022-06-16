@@ -1,9 +1,12 @@
 import React, { useRef } from "react";
 
 export default function ScrollBar() {
-  const scrollBarRef = useRef("0%");
+  const scrollBarRef = useRef("");
   //get max window scroll
   const handleScroll = () => {
+    // console.log(scrollBarRef.current);
+    if (!scrollBarRef.current) return
+    // console.log(scrollBarRef.current);
     const bodyEl = document.querySelector(".app-container");
 
     //offset - height of viewport (height of what is on screen)

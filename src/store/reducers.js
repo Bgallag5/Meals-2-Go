@@ -66,7 +66,6 @@ export const reducer = (state, { type, payload }) => {
       };
 
     case "REMOVE_ITEM":
-      console.log(payload);
       //search for item in cart
       const itemToRemove = state.items.find((item) => item.id === payload.id);
       //filter current items and exclude itemToRemove
@@ -82,7 +81,6 @@ export const reducer = (state, { type, payload }) => {
       };
 
     case "SET_APP_MESSAGE":
-      console.log(payload);
       const { msg, color, timer, emoji } = payload;
 
       return {
@@ -107,14 +105,21 @@ export const reducer = (state, { type, payload }) => {
       };
 
       case 'LOGIN_USER':
-        console.log(payload);
-
         return {
           ...state,
           user: {
-            // isLoggedIn: true,
+            isLoggedIn: true,
             email: payload.email,
             idToken: payload.idToken,
+          }
+        };
+      case 'LOGOUT_USER':
+        return {
+          ...state,
+          user: {
+            isLoggedIn: false,
+            email: undefined,
+            idToken: undefined,
           }
         };
   }

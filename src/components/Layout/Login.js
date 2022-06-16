@@ -10,7 +10,7 @@ import Spinner from "../UI/Spinner";
 export default function Login() {
   const [loading, setLoading] = useState(false);
   const [authMsg, setAuthMsg] = useState("Invalid");
-  const {login, user} = useContext(GlobalContext)
+  const {login} = useContext(GlobalContext)
   // const [user, setUser] = useState(false);
   const navigate = useNavigate();
   const authMsgRef = useRef();
@@ -47,11 +47,10 @@ export default function Login() {
       }
       // bgallag5@gmail.com
       login(currentUser);
-      // login(currentUser)
-      // return (
-      //   //...return to menu on successful login
-      //   navigate("/")
-      // );
+      return (
+        //...return to menu on successful login
+        navigate("/")
+      );
     } else if (response.error) {
       setLoading(false);
       setAuthMsg(response.error.message);

@@ -11,7 +11,7 @@ const preLoadedState = {
   totalAmount: 0,
   availableMeals: meals,
   user: {
-    isLoggedIn: undefined,
+    isLoggedIn: false,
     email: undefined,
     idToken: undefined,
   },
@@ -55,7 +55,12 @@ const Provider = (props) => {
 
   const login = (user) => {
     dispatch({type: 'LOGIN_USER', payload: user});
-    // setAppMessage({msg: `Welcome ${user.email}`, timer: 1, emoji: '❗️'})
+    setAppMessage({msg: `Welcome ${user.email}`, timer: 1, emoji: '❗️'})
+  }
+
+  const logout = (user) => {
+    dispatch({type: 'LOGOUT_USER'});
+    setAppMessage({msg: `Logout Successful`, timer: 1.5, emoji: '❗️'})
   }
 
   //full state context passed into our context provider
@@ -74,6 +79,7 @@ const Provider = (props) => {
     setAppMessage,
     clearAppMessage,
     login,
+    logout
   };
 
   return (
