@@ -11,7 +11,8 @@ export default function LogInOutBtn({ handleLogout }) {
       {user.isLoggedIn ? (
         <button onClick={handleLogout}>Logout</button>
       ) : (
-        <NavLink to={"/login"}>Login</NavLink>
+          <button><NavLink to={"/login"}>Login</NavLink></button>
+        
       )}
     </>
   );
