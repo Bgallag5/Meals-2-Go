@@ -1,13 +1,8 @@
-// const User = require("../models/User");
-// const jwt = require("jsonwebtoken");
-// const bcrypt = require("bcrypt");
+
 const FIREBASE_KEY = process.env.REACT_APP_FIREBASE_PROJECT_KEY;
-console.log(FIREBASE_KEY);
-// const EMAIL_KEY = process.env.REACT_APP_EMAIL_PUBLIC_KEY
 
 export const signupUser = async (user) => {
   const { email, password, passwordConfirm } = user;
-  console.log(user);
 
   //build new user object
   // const newUser = {

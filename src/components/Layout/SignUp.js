@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../store/GlobalStore";
 
 export default function SignUp() {
-  const {appMessage, setAppMessage, clearAppMessage, user} = useContext(GlobalContext);
+  const { setAppMessage, user} = useContext(GlobalContext);
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false);
   const [authMsg, setAuthMsg] = useState("Invalid");
@@ -28,7 +28,7 @@ export default function SignUp() {
   const handleFormSubmit = async (values) => {
     setLoading(true);
     console.log(values);
-    const { email, password, passwordConfirm, termsOfService } = values;
+    const { email, password, termsOfService } = values;
     const user = {
       email,
       password,

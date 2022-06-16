@@ -5,9 +5,6 @@ import { GlobalContext } from "../../store/GlobalStore";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
-  //order button does something
-  // x button to remove entire cart item,
-  //changing quantity to 0 does not remove item from dom
 
   //AppContext contains refs and functions that need to be passed around the application
   const {

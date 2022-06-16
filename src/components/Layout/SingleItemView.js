@@ -6,15 +6,9 @@ export default function SingleItemView() {
   const [itemQuantity, setItemQuantity] = useState(1);
 
   const { addItem, setAppMessage, items, availableMeals } = useContext(GlobalContext);
-  console.log(items);
-  
   const params = useParams();
-  console.log(params);
-  let selectedMeal = availableMeals.find(item => item.id == params.itemId);
-  console.log(selectedMeal);
-    const { id, name, price, description, category, course, img } = selectedMeal;
-
-  //button subtracts items to cart with accurate quantity
+  let selectedMeal = availableMeals.find((item) => item.id == params.itemId);
+  const { id, name, price, description, category, course, img } = selectedMeal;
 
   const handleQuantityChange = (e) => {
     e.preventDefault();

@@ -8,8 +8,6 @@ export default function MenuItem({ meal }) {
   const { id, name, price, description, category, course, img } = meal;
   const { addItem, setAppMessage } = useContext(GlobalContext);
 
-  //button subtracts items to cart with accurate quantity
-
   const handleQuantityChange = (e) => {
     e.preventDefault();
     setItemQuantity(Number(e.target.value));

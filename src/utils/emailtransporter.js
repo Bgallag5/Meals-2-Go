@@ -1,22 +1,20 @@
 import emailjs from "@emailjs/browser";
 
+//
 export const sendOrderConfirm = (formValues, items, totalAmount) => {
-
-  // const EMAIL_PUBLIC_KEY = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
+  const EMAIL_PUBLIC_KEY = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
   const { firstName, cardCSV, email } = formValues;
-  console.log(firstName, cardCSV);
 
   const message = createEmailMarkup(formValues, items, totalAmount);
-  console.log(message);
   const emailData = {
       from_name: "Meals 2 Go",
       from_email: "noreply@meals2go.com",
       message,
-    to_email: email,
+      to_email: email,
   };
 
   emailjs
-    // .send("service_s84ftdq", "template_mehq8zs", emailData, EMAIL_PUBLIC_KEY)
+    .send("service_s84ftdq", "template_mehq8zs", emailData, EMAIL_PUBLIC_KEY)
     .then(
       (result) => {
         console.log(result.text);
@@ -27,6 +25,7 @@ export const sendOrderConfirm = (formValues, items, totalAmount) => {
     );
 };
 
+//build order summary section in email
 const orderSummary = (formValues, items, totalAmount) => {
     return (
         `<div>
@@ -44,10 +43,10 @@ const orderSummary = (formValues, items, totalAmount) => {
     )
 }
 
+//build email markup
 const createEmailMarkup = (formValues, items, totalAmount) => {
   const { firstName, cardCSV, cardNumber } = formValues;
   const summary = orderSummary(formValues, items, totalAmount);
-  console.log(summary);
   return (
       `
     <div>

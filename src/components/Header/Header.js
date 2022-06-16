@@ -6,7 +6,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 import AppMessage from "../UI/AppMessage";
 import ScrollBar from "../UI/ScrollBar";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import LogInOutBtn from "./LogInOutBtn";
 
 export default function Header() {
@@ -29,22 +29,18 @@ export default function Header() {
 
   const handleLogout = () => {
     logout();
-    navigate('/menu');
+    navigate('/');
   }
 
-  console.log(user);
-  console.log(items);
   return (
     <>
       {appMessage?.msg && <AppMessage />}
       <div className="header flex-col">
         <header className="header__main flex-row">
-          <NavLink to={"/menu"}>
+          <NavLink to={"/"}>
             <h1 className="header__main--title">Meals-2-Go</h1>
           </NavLink>
           <h2>{user && user.email}</h2>
-          {/* <Link to={'/login'}>Login</Link> */}
-          {/* <button onClick={handleLogout}>Logout</button> */}
           <LogInOutBtn handleLogout={handleLogout} />
           <button
             ref={cartButtonRef}

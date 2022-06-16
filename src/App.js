@@ -53,10 +53,6 @@ function App() {
     window.scrollTo(0, 0);
   }, []);
 
-  // const [user, setUser] = useState('Ben');
-  // console.log(user);
-  // <Route exact path={"/signup"} element={user ? <Navigate to={'/menu'} /> : <SignUp />} />
-
   return (
     <Provider>
       <AppContext.Provider value={globalVars}>
@@ -64,8 +60,7 @@ function App() {
           <BrowserRouter>
             <Header />
             <Routes>
-              <Route exact path={"/"}  element={ <Navigate to={'/menu'} />}/>
-              <Route exact path={"/menu"} element={<Menu />} />
+              <Route exact path={"/"} element={<Menu />} />
               <Route exact path={"/signup"} element={<SignUp />} />
               <Route path={"/login"} element={<Login />} />
               <Route path={"/menu-item/:itemId"} element={<SingleItemView />} />

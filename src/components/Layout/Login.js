@@ -11,7 +11,6 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [authMsg, setAuthMsg] = useState("Invalid");
   const {login} = useContext(GlobalContext)
-  // const [user, setUser] = useState(false);
   const navigate = useNavigate();
   const authMsgRef = useRef();
   const form = useForm({
@@ -45,7 +44,6 @@ export default function Login() {
         idToken: response.idToken,
         expires: response.expiresIn
       }
-      // bgallag5@gmail.com
       login(currentUser);
       return (
         //...return to menu on successful login

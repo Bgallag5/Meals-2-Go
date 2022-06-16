@@ -43,13 +43,10 @@ export default function Checkout() {
 
   const handlePlaceOrder = async (e) => {
     e.preventDefault();
-    //validate?
     let isValid = form.validate();
 
     if (isValid){
-      console.log(form.values);
       sendOrderConfirm(form.values, items, totalAmount);
-      //  new Email(form.values).sendOrderConfirm();
     }
   }
 
