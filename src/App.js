@@ -47,6 +47,7 @@ function App() {
     handleToggleModal,
     handleClickOffModal,
   };
+  
 
   //scroll to top on load
   useEffect(() => {

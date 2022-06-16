@@ -31,28 +31,28 @@
         border-bottom: 1px solid $color-accent;
       }
 
-      &--name{
-          gap: 1rem;
-            align-items: center;
-          .clear-item{
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              height: 2rem;
-              width: 2rem;
-              padding: 1rem;
-              color: rgba(255, 0, 0, .5);
-              border: none;
-              border-radius: 80px;
-              background-color: $color-grey--light;
-              cursor: pointer;
-            //   filter: blur(1px);  
+      &--name {
+        gap: 1rem;
+        align-items: center;
+        .clear-item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 2rem;
+          width: 2rem;
+          padding: 1rem;
+          color: rgba(255, 0, 0, 0.5);
+          border: none;
+          border-radius: 80px;
+          background-color: $color-grey--light;
+          cursor: pointer;
+          //   filter: blur(1px);
 
-            &:hover{
-                color: rgba(255, 0, 0, 1);
-                transform: scale(1.3);
-            }
+          &:hover {
+            color: rgba(255, 0, 0, 1);
+            transform: scale(1.3);
           }
+        }
       }
 
       &--amounts {
@@ -67,9 +67,9 @@
         .price-quantity {
           gap: 5rem;
 
-          .input-quantity{
-              gap: 1rem;
-              border: none;  
+          .input-quantity {
+            gap: 1rem;
+            border: none;
           }
         }
       }
@@ -100,13 +100,12 @@
         }
 
         .cart--btn-close {
-            background-color: $color-grey;
+          background-color: $color-grey;
         }
 
         .cart--btn-order {
-          // color: $color-white;
           & > * {
-              text-decoration: none;
+            text-decoration: none;
             color: black;
           }
         }

@@ -41,7 +41,7 @@ export default function Header() {
             <h1 className="header__main--title">Meals-2-Go</h1>
           </NavLink>
           <h2>{user && user.email}</h2>
-          <LogInOutBtn handleLogout={handleLogout} />
+          {/* <LogInOutBtn handleLogout={handleLogout} /> */}
           <button
             ref={cartButtonRef}
             disabled={!items.length > 0}
