@@ -1,23 +1,26 @@
 import React, { useRef, useContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import {useParams} from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 //components
 import Header from "./components/Header/Header";
 import Menu from "./components/Layout/Menu";
 import Checkout from "./components/Layout/Checkout/Checkout";
 import Provider, { GlobalContext } from "./store/GlobalStore";
-import SingleItemView from './components/Layout/SingleItemView';
+import SingleItemView from "./components/Layout/SingleItemView";
 import SignUp from "./components/Layout/SignUp";
 import Login from "./components/Layout/Login";
+import { useNavigate } from "react-router-dom";
 
 export const AppContext = React.createContext();
 
 function App() {
-  const state = useContext(GlobalContext);
+  const {user, checkAuthToken, login} = useContext(GlobalContext);
+  // const {checkAuthToken} = state;
+  console.log(user.idToken);
+  console.log(user);
   const modalRef = useRef();
   const modalContainerRef = useRef();
-  console.log(state);
 
   const params = useParams();
   console.log(params);
@@ -47,15 +50,24 @@ function App() {
     handleToggleModal,
     handleClickOffModal,
   };
-  
 
   //scroll to top on load
+  useEffect(() => {
+    // if (!state) return;
+
+    const returningUser = checkAuthToken();
+    console.log(returningUser);
+    if(returningUser){
+      login(returningUser)
+    }
+  }, []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <Provider>
+    // <Provider>
       <AppContext.Provider value={globalVars}>
         <div className="app-container">
           <BrowserRouter>
@@ -70,7 +82,7 @@ function App() {
           </BrowserRouter>
         </div>
       </AppContext.Provider>
-    </Provider>
+    // </Provider>
   );
 }
 
