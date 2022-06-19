@@ -16,7 +16,7 @@
     flex-direction: row;
 }
 
-.jcsp{
+.jcsb{
     justify-content: space-between;
 }
 
@@ -70,6 +70,11 @@
     align-items: center;
     border: none;
     cursor: pointer;
+    transition: .5s;
+
+    &:hover{
+        opacity: 1;
+    }
 
     &:active{
         transform: translateY(2px);
@@ -91,6 +96,9 @@
     }
 }
 
+.link{
+    color: blue;
+}
 
 .input-quantity{
     width: 4rem;

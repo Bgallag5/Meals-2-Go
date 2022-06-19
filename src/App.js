@@ -1,16 +1,17 @@
 import React, { useRef, useContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Provider, { GlobalContext } from "./store/GlobalStore";
 
 //components
 import Header from "./components/Header/Header";
 import Menu from "./components/Layout/Menu";
 import Checkout from "./components/Layout/Checkout/Checkout";
-import Provider, { GlobalContext } from "./store/GlobalStore";
 import SingleItemView from "./components/Layout/SingleItemView";
 import SignUp from "./components/Layout/SignUp";
 import Login from "./components/Layout/Login";
-import { useNavigate } from "react-router-dom";
+import NoRouteMatch from "./components/UI/NoRouteMatch";
 
 export const AppContext = React.createContext();
 
@@ -71,7 +72,8 @@ function App() {
               <Route exact path={"/signup"} element={<SignUp />} />
               <Route path={"/login"} element={<Login />} />
               <Route path={"/menu-item/:itemId"} element={<SingleItemView />} />
-              <Route path={"/checkout"} element={<Checkout />} />
+              <Route path={"/checkout"} element={user.isLoggedIn ? <Checkout /> : <Navigate to={'/'} />} />
+              <Route path="*" element={<NoRouteMatch />} /> 
             </Routes>
           </BrowserRouter>
         </div>

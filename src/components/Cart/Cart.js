@@ -24,11 +24,8 @@ export default function Cart() {
       className="cart flex-col hidden"
     >
       <div ref={modalRef} className="cart__cart flex-col">
-        {items.map((item) => {
-          return <CartItem item={item} key={item.id} />;
-        })}
         <div className="cart__total flex-col cart__item">
-          <div className="flex-row jcsp">
+          <div className="flex-row jcsb">
             <h1 className="text-large">Total</h1>
             <h1 className="text-large">${totalAmount}</h1>
           </div>
@@ -44,6 +41,9 @@ export default function Cart() {
             </button>
           </div>
         </div>
+        {items.map((item) => {
+          return <CartItem item={item} key={item.id} />;
+        })}
       </div>
     </div>
   );

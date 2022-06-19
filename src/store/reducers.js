@@ -125,7 +125,7 @@ export const reducer = (state, { type, payload }) => {
             isLoggedIn: false,
             email: undefined,
             idToken: undefined,
-          }
+          },
         };
   }
 };

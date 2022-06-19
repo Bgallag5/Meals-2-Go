@@ -48,7 +48,7 @@ a {
   flex-direction: row;
 }
 
-.jcsp {
+.jcsb {
   justify-content: space-between;
 }
 
@@ -100,6 +100,10 @@ a {
   align-items: center;
   border: none;
   cursor: pointer;
+  transition: 0.5s;
+}
+.btn:hover {
+  opacity: 1;
 }
 .btn:active {
   transform: translateY(2px);
@@ -118,6 +122,10 @@ a {
 }
 .btn-fade:active {
   transform: translate(0);
+}
+
+.link {
+  color: blue;
 }
 
 .input-quantity {
@@ -391,6 +399,7 @@ a {
   background-color: rgb(242, 242, 242);
   padding: 3rem;
   border-radius: 10px;
+  flex-direction: column-reverse;
 }
 .cart__cart .cart__item {
   height: auto;
@@ -674,9 +683,6 @@ a {
 }
 .signup__msg {
   display: none;
-}
-.signup .link__signup {
-  color: blue;
 }
 
 /*# sourceMappingURL=style.css.map */

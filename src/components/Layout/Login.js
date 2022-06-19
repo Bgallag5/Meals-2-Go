@@ -10,7 +10,7 @@ import Spinner from "../UI/Spinner";
 export default function Login() {
   const [loading, setLoading] = useState(false);
   const [authMsg, setAuthMsg] = useState("Invalid");
-  const {login} = useContext(GlobalContext)
+  const {login, setAppMessage} = useContext(GlobalContext)
   const navigate = useNavigate();
   const authMsgRef = useRef();
   const form = useForm({
@@ -45,6 +45,7 @@ export default function Login() {
         expires: response.expiresIn
       }
       login(currentUser);
+      setAppMessage({ msg: `Welcome ${user.email}`, timer: 1, emoji: "❗️" });
       return (
         //...return to menu on successful login
         navigate("/")
@@ -87,7 +88,7 @@ export default function Login() {
           </form>
         </Box>
       )}
-      <p className="text-tiny">Dont have an account? <NavLink className="link__signup" to={'/signup'}>Sign Up</NavLink> </p>
+      <p className="text-tiny">Dont have an account? <NavLink className="link" to={'/signup'}>Sign Up</NavLink> </p>
     </div>
   );
 }

@@ -19,6 +19,7 @@
     background-color: $color-white;
     padding: 3rem;
     border-radius: $border-smooth;
+    flex-direction: column-reverse;
 
     .cart__item {
       height: auto;

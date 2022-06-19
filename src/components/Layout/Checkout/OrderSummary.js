@@ -12,7 +12,7 @@ export default function OrderSummary() {
      <h2 className="text-large mb2">Order Summary</h2> 
     <div className="cart__cart flex-col order__summary">
       <div className="cart__total flex-col cart__item">
-        <div className="flex-row jcsp">
+        <div className="flex-row jcsb">
           <h1 className="text-large">Total</h1>
           <h1 className="text-large">${totalAmount}</h1>
         </div>

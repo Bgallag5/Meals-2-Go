@@ -75,7 +75,7 @@ const Provider = (props) => {
   const login = (user) => {
     setAuthToken(user);
     dispatch({ type: "LOGIN_USER", payload: user });
-    setAppMessage({ msg: `Welcome ${user.email}`, timer: 1, emoji: "❗️" });
+    // setAppMessage({ msg: `Welcome ${user.email}`, timer: 1, emoji: "❗️" });
   };
 
   const logout = (user) => {
