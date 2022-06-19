@@ -16,9 +16,6 @@ export const AppContext = React.createContext();
 
 function App() {
   const {user, checkAuthToken, login} = useContext(GlobalContext);
-  // const {checkAuthToken} = state;
-  console.log(user.idToken);
-  console.log(user);
   const modalRef = useRef();
   const modalContainerRef = useRef();
 
@@ -27,7 +24,6 @@ function App() {
 
   //close cart modal on click outside modal
   const handleClickOffModal = (e) => {
-    console.log("CLICKED!!!");
     //if user click inside the cart modal, return do nothing
     if (modalRef.current.contains(e.target)) return;
     else if (!modalRef.current.contains(e.target)) {
@@ -51,17 +47,15 @@ function App() {
     handleClickOffModal,
   };
 
-  //scroll to top on load
+  //check for returning user, login that user
   useEffect(() => {
-    // if (!state) return;
-
     const returningUser = checkAuthToken();
-    console.log(returningUser);
     if(returningUser){
       login(returningUser)
     }
   }, []);
 
+    //scroll to top on load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

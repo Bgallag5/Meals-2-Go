@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext, useEffect } from "react";
 import { TextInput, Checkbox, Button, Group, Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { signupUser } from "../../utils/auth";
@@ -11,6 +11,7 @@ export default function SignUp() {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false);
   const [authMsg, setAuthMsg] = useState("Invalid");
+  const [valid, setValid] = useState(false)
   const authMsgRef = useRef();
   const form = useForm({
     initialValues: {
@@ -22,6 +23,7 @@ export default function SignUp() {
 
     validate: {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+      password: (val) => val.length >= 6 ? null : 'Invalid Password',
     },
   });
 
@@ -52,6 +54,16 @@ export default function SignUp() {
       authMsgRef.current.style.display = "inline";
     }
   };
+
+  // const handleFormChange = () => {
+  //   let isValid = form.validate();
+  //   console.log(isValid.hasErrors);
+  //   if (isValid.hasErrors){
+  //     return
+  //   } else if (!isValid.hasErrors){
+  //     setValid(true)
+  //   }
+  // }
 
   return (
     <div className="signup flex-col">

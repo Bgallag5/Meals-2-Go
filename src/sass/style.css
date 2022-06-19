@@ -88,6 +88,11 @@ a {
   font-weight: 400;
 }
 
+.text-tiny {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
 .btn {
   border-radius: 50px;
   padding: 1rem;
@@ -394,7 +399,7 @@ a {
   margin-bottom: 2rem;
   gap: 1rem;
 }
-.cart__cart .cart__item:not(:last-child) {
+.cart__cart .cart__item:not(:first-child) {
   border-bottom: 1px solid #457b9d;
 }
 .cart__cart .cart__item--name {
@@ -660,13 +665,18 @@ a {
 
 .order__summary {
   width: 100% !important;
+  flex-direction: column-reverse;
 }
 
 .signup {
   align-items: center;
+  gap: 1rem;
 }
 .signup__msg {
   display: none;
+}
+.signup .link__signup {
+  color: blue;
 }
 
 /*# sourceMappingURL=style.css.map */

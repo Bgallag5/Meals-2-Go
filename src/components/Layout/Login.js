@@ -2,7 +2,7 @@ import React, { useState, useContext, useRef } from "react";
 import { TextInput, Button, Group, Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { loginUser } from "../../utils/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import {GlobalContext} from '../../store/GlobalStore';
 
 import Spinner from "../UI/Spinner";
@@ -87,6 +87,7 @@ export default function Login() {
           </form>
         </Box>
       )}
+      <p className="text-tiny">Dont have an account? <NavLink className="link__signup" to={'/signup'}>Sign Up</NavLink> </p>
     </div>
   );
 }

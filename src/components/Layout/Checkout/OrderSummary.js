@@ -11,15 +11,15 @@ export default function OrderSummary() {
     <>
      <h2 className="text-large mb2">Order Summary</h2> 
     <div className="cart__cart flex-col order__summary">
-      {items.map((item) => {
-        return <CheckoutItem item={item} key={item.id} />;
-      })}
       <div className="cart__total flex-col cart__item">
         <div className="flex-row jcsp">
           <h1 className="text-large">Total</h1>
           <h1 className="text-large">${totalAmount}</h1>
         </div>
       </div>
+      {items.map((item) => {
+        return <CheckoutItem item={item} key={item.id} />;
+      })}
     </div>
     </>
   );

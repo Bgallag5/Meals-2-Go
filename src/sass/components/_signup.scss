@@ -1,7 +1,11 @@
 .signup{
     align-items: center;
-
+    gap: 1rem;
     &__msg{
         display: none;
+    }
+
+    .link__signup{
+        color: blue;
     }
 }
