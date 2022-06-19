@@ -9,9 +9,9 @@ export default function LogInOutBtn({ handleLogout }) {
   return (
     <>
       {user.isLoggedIn ? (
-        <button onClick={handleLogout}>Logout</button>
+        <button className="header__btn header__btn--logout btn text-small" onClick={handleLogout}>Logout</button>
       ) : (
-          <button><NavLink to={"/login"}>Login</NavLink></button>
+          <button className="header__btn header__btn--login btn text-small"><NavLink to={"/login"}>Login</NavLink></button>
         
       )}
     </>

@@ -1,3 +1,4 @@
+//REDUCER HELPER FUNCTIONS
 //calculate the cart total
 function calcTotal(arr) {
   const total = arr.reduce((acc, cur) => {
@@ -11,10 +12,15 @@ function calcTotal(arr) {
   return total;
 }
 
-const storeData = (data) => {
+const checkAuthToken = (data) => {
   //push to LS
 };
 
+const calcExpiration = () => {
+  
+}
+
+//REDUCER
 export const reducer = (state, { type, payload }) => {
   let updatedItems;
 
@@ -105,6 +111,7 @@ export const reducer = (state, { type, payload }) => {
       };
 
       case 'LOGIN_USER':
+        //handle Auth with localstorage save 
         return {
           ...state,
           user: {

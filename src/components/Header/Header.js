@@ -17,8 +17,12 @@ export default function Header() {
 
   //when items are added/removed add className 'ripple' for 1 second
   useEffect(() => {
-    if (items.length <= 0) return;
+    if (items.length <= 0) {
+      cartButtonRef.current.classList.add('btn-fade');
+      return;
+    }
     //remove ripple in case click twice within 1 second
+    cartButtonRef.current.classList.remove('btn-fade');
     cartButtonRef.current.classList.remove("ripple");
     cartButtonRef.current.classList.add("ripple");
 
@@ -40,20 +44,24 @@ export default function Header() {
           <NavLink to={"/"}>
             <h1 className="header__main--title">Meals-2-Go</h1>
           </NavLink>
-          <h2>{user && user.email}</h2>
-          {/* <LogInOutBtn handleLogout={handleLogout} /> */}
+          {/* <h2>{user && user.email}</h2> */}
+          <div className="header__main--btns flex-row">
+
+          <LogInOutBtn handleLogout={handleLogout} />
           <button
+            data-count={items.reduce((acc, cur) => acc + cur.quantity, 0)}
             ref={cartButtonRef}
             disabled={!items.length > 0}
             onClick={handleToggleModal}
-            className="header__main--cart btn flex-row "
+            className="btn header__btn flex-row header__btn--cart"
           >
             <FontAwesomeIcon icon={faCartShopping} />
             <p className="text-regular">Cart</p>
-            <div className="header__main--cart--items flex-row">
+            {/* <div className="header__main--cart--items flex-row">
               {items.reduce((acc, cur) => acc + cur.quantity, 0)}
-            </div>
+            </div> */}
           </button>
+          </div>
         </header>
         <div className="scrollbar-container">
           <ScrollBar />

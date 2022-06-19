@@ -79,6 +79,13 @@
     background-color: $color-primary !important;
 }
 
+.btn-fade{
+    opacity: .8;
+    &:active{
+       transform: translate(0);     
+    }
+}
+
 
 .input-quantity{
     width: 4rem;
